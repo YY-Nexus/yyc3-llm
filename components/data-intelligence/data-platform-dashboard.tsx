@@ -635,7 +635,13 @@ export default function DataPlatformDashboard() {
                             <BrandButton
                               variant="outline"
                               size="sm"
-                              onClick={() => executeQuery(`SELECT * FROM ${tableName} LIMIT 10`)}
+                              onClick={() => {
+                                // 安全验证: 确保表名只包含合法字符
+                                const sanitizedTableName = tableName.replace(/[^a-zA-Z0-9_]/g, '');
+                                if (sanitizedTableName && sanitizedTableName === tableName) {
+                                  executeQuery(`SELECT * FROM ${sanitizedTableName} LIMIT 10`);
+                                }
+                              }}
                             >
                               <Search className="h-4 w-4" />
                             </BrandButton>

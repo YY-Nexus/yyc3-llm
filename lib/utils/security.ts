@@ -62,10 +62,25 @@ export class SecurityUtils {
     }
   }
 
-  // JWT Token 验证（简化版）
+  // JWT Token 验证（增强版）
   static verifyJWT(token: string, secret: string): any {
+    // 验证密钥强度
+    if (!secret || secret.length < 16) {
+      throw new Error('Invalid secret key: must be at least 16 characters')
+    }
+    
     try {
+      // 验证token格式
+      if (!token || !token.includes('.')) {
+        throw new Error('Invalid token format')
+      }
+      
       const [header, payload, signature] = token.split('.')
+      
+      // 验证是否有三个部分
+      if (!header || !payload || !signature) {
+        throw new Error('Invalid token structure')
+      }
       
       // 验证签名
       const expectedSignature = crypto
@@ -84,27 +99,53 @@ export class SecurityUtils {
       if (decodedPayload.exp && decodedPayload.exp < Date.now() / 1000) {
         throw new Error('Token expired')
       }
+      
+      // 检查颁发时间（防止将来的token）
+      if (decodedPayload.iat && decodedPayload.iat > Date.now() / 1000 + 30) {
+        throw new Error('Token issued in future')
+      }
 
       return decodedPayload
-    } catch (error) {
-      throw new Error('Invalid token')
+    } catch (error: any) {
+      throw new Error(`Token verification failed: ${error.message || 'Unknown error'}`)
     }
   }
 
-  // 生成 JWT Token
+  // 生成 JWT Token（增强版）
   static generateJWT(payload: any, secret: string, expiresIn = '24h'): string {
+    // 验证密钥强度
+    if (!secret || secret.length < 16) {
+      throw new Error('Invalid secret key: must be at least 16 characters')
+    }
+    
     const header = {
       alg: 'HS256',
       typ: 'JWT'
     }
 
     const now = Math.floor(Date.now() / 1000)
-    const exp = now + (expiresIn === '24h' ? 24 * 60 * 60 : parseInt(expiresIn))
+    
+    // 安全处理过期时间
+    let exp: number
+    if (expiresIn === '24h') {
+      exp = now + 24 * 60 * 60 // 24小时
+    } else {
+      // 解析数值过期时间（秒）
+      const expSeconds = parseInt(expiresIn)
+      if (isNaN(expSeconds) || expSeconds <= 0) {
+        throw new Error('Invalid expiresIn value')
+      }
+      // 限制最大过期时间为7天
+      exp = now + Math.min(expSeconds, 7 * 24 * 60 * 60)
+    }
 
+    // 确保不覆盖关键字段
     const jwtPayload = {
       ...payload,
       iat: now,
-      exp: exp
+      exp: exp,
+      // 添加jti (JWT ID)防止重放攻击
+      jti: this.generateSecureToken(16)
     }
 
     const encodedHeader = Buffer.from(JSON.stringify(header)).toString('base64url')

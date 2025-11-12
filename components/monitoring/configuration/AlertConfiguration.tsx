@@ -197,9 +197,9 @@ const AlertConfiguration: React.FC = () => {
       description: '通过短信发送告警通知（仅用于严重告警）',
       configuration: {
         provider: 'twilio',
-        accountSid: 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        authToken: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-        fromNumber: '+1234567890',
+        accountSid: process.env.TWILIO_ACCOUNT_SID || '',
+        authToken: process.env.TWILIO_AUTH_TOKEN || '',
+        fromNumber: process.env.TWILIO_FROM_NUMBER || '+1234567890',
       },
     },
     {
