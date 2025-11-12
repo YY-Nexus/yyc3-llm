@@ -134,7 +134,7 @@ class OllamaServiceChecker {
   // 提供安装指导
   private provideInstallationGuide(): void {
     console.log("\n📖 Ollama安装指南:")
-    console.log("=" * 40)
+    console.log("=".repeat(40))
 
     console.log("\n🖥️ 各平台安装方法:")
     console.log("  macOS:")
@@ -163,7 +163,7 @@ class OllamaServiceChecker {
   // 提供故障排除指导
   private provideTroubleshootingGuide(): void {
     console.log("\n🔧 故障排除指南:")
-    console.log("=" * 40)
+    console.log("=".repeat(40))
 
     console.log("\n❓ 常见问题:")
 
@@ -197,7 +197,7 @@ class OllamaServiceChecker {
   // 主要检查流程
   public async check(): Promise<void> {
     console.log("🔍 Ollama服务检查")
-    console.log("=" * 50)
+    console.log("=".repeat(50))
 
     // 检查安装状态
     const isInstalled = this.checkOllamaInstallation()
@@ -274,7 +274,7 @@ class OllamaServiceChecker {
 }
 
 // 如果直接运行此脚本
-if (require.main === module) {
+if (import.meta.url === new URL(process.argv[1], import.meta.url).href) {
   const checker = new OllamaServiceChecker()
   checker.check()
 }

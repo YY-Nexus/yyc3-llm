@@ -1,0 +1,55 @@
+{
+  "models": [
+    {
+      "id": "HuggingFace:Qwen2.5-7B-Instruct",
+      "name": "Qwen2.5-7B-Instruct",
+      "provider": "HuggingFace",
+      "source": {
+        "type": "Manual",
+        "url": "offline"
+      },
+      "link": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+      "tags": [
+        "chat",
+        "instruct"
+      ],
+      "tasks": [
+        "text-generation"
+      ]
+    },
+    {
+      "id": "ModelScope:Yi-34B-Chat",
+      "name": "Yi-34B-Chat",
+      "provider": "ModelScope",
+      "source": {
+        "type": "Manual",
+        "url": "offline"
+      },
+      "link": "https://modelscope.cn/models/01ai/Yi-34B-Chat",
+      "tags": [
+        "chat"
+      ],
+      "tasks": [
+        "text-generation"
+      ]
+    },
+    {
+      "id": "GitHub:awesome-LLMs",
+      "name": "awesome-LLMs",
+      "provider": "GitHub",
+      "source": {
+        "type": "Manual",
+        "url": "offline"
+      },
+      "link": "https://github.com/Hannibal046/Awesome-LLM",
+      "tags": [
+        "collection"
+      ],
+      "tasks": [
+        "reference"
+      ]
+    }
+  ],
+  "sourceCount": 1,
+  "updatedAt": "2025-10-24T13:57:47.674Z"
+}

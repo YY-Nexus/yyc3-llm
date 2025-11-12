@@ -1,0 +1,75 @@
+# 应用 Deployment 草案（生产可按需调整副本数与资源）
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yanyu-llm-web
+  namespace: yanyu-cloud
+  labels:
+    app: yanyu-llm-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: yanyu-llm-web
+  template:
+    metadata:
+      labels:
+        app: yanyu-llm-web
+    spec:
+      containers:
+        - name: web
+          image: your-repo/yan-llm:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: yanyu-cloud-config
+                  key: NODE_ENV
+            - name: NEXT_TELEMETRY_DISABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: yanyu-cloud-config
+                  key: NEXT_TELEMETRY_DISABLED
+            - name: NEXT_PUBLIC_OLLAMA_URL
+              value: "http://ollama:11434"
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: yanyu-cloud-secrets
+                  key: OPENAI_API_KEY
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: yanyu-cloud-secrets
+                  key: JWT_SECRET
+          readinessProbe:
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /api/healthz
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 2
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+      # 可选：添加注释，用于服务网格或 Sidecar
+      # tolerations: []
+      # nodeSelector: {}
+      # affinity: {}

@@ -1,0 +1,96 @@
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(803,17): error TS2322: Type 'string | number | true' is not assignable to type 'string | number | readonly string[] | undefined'.
+  Type 'true' is not assignable to type 'string | number | readonly string[] | undefined'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(907,17): error TS2322: Type 'string | number | true' is not assignable to type 'string | number | readonly string[] | undefined'.
+  Type 'true' is not assignable to type 'string | number | readonly string[] | undefined'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(1129,55): error TS2353: Object literal may only specify known properties, and 'serviceName' does not exist in type 'ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(1129,55): error TS18004: No value exists in scope for the shorthand property 'serviceName'. Either declare one or provide an initializer.
+components/monitoring/configuration/SLAMonitoring.tsx(162,9): error TS2322: Type '"hourly"' is not assignable to type '"daily" | "weekly" | "monthly" | "quarterly" | "annually"'.
+components/monitoring/configuration/SLAMonitoring.tsx(851,30): error TS2322: Type '(entry: any) => "#ef4444" | "#10b981"' is not assignable to type 'string'.
+components/monitoring/configuration/SLAMonitoring.tsx(851,32): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+components/monitoring/configuration/SLAMonitoring.tsx(1091,29): error TS2322: Type '{ services: string[]; environments?: string[] | undefined; endpoints?: string[]; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'environments' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/configuration/SLAMonitoring.tsx(1137,29): error TS2322: Type '{ environments: string[]; services?: string[] | undefined; endpoints?: string[]; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'services' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/configuration/SLAMonitoring.tsx(1166,23): error TS2322: Type '{ endpoints: string[]; services?: string[] | undefined; environments?: string[] | undefined; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'services' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/dashboard/MonitoringDashboard.tsx(370,53): error TS18046: 'percent' is of type 'unknown'.
+components/monitoring/dashboard/MonitoringDashboard.tsx(523,33): error TS7030: Not all code paths return a value.
+components/monitoring/remediation/AutoRemediation.tsx(12,295): error TS2305: Module '"@/components/ui/"' has no exported member 'Textarea'.
+components/monitoring/remediation/AutoRemediation.tsx(875,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/monitoring/remediation/AutoRemediation.tsx(1268,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/monitoring/sla/SLAMonitor.tsx(12,295): error TS2305: Module '"@/components/ui/"' has no exported member 'Textarea'.
+components/monitoring/sla/SLAMonitor.tsx(12,305): error TS2305: Module '"@/components/ui/"' has no exported member 'BarChart'.
+components/monitoring/sla/SLAMonitor.tsx(12,333): error TS2305: Module '"@/components/ui/"' has no exported member 'PieChart'.
+components/monitoring/sla/SLAMonitor.tsx(12,361): error TS2305: Module '"@/components/ui/"' has no exported member 'LineChart'.
+components/monitoring/sla/SLAMonitor.tsx(13,238): error TS2305: Module '"lucide-react"' has no exported member 'AlertSquare'.
+components/monitoring/sla/SLAMonitor.tsx(471,9): error TS2322: Type 'string' is not assignable to type '"normal" | "warning" | "violation"'.
+components/monitoring/sla/SLAMonitor.tsx(478,39): error TS2552: Cannot find name 'target'. Did you mean 'Target'?
+components/monitoring/sla/SLAMonitor.tsx(550,7): error TS2322: Type 'string' is not assignable to type '"normal" | "warning" | "violation"'.
+components/monitoring/sla/SLAMonitor.tsx(897,64): error TS18046: 'percent' is of type 'unknown'.
+components/monitoring/sla/SLAMonitor.tsx(921,18): error TS2304: Cannot find name 'LineChart'.
+components/monitoring/sla/SLAMonitor.tsx(934,19): error TS2304: Cannot find name 'LineChart'.
+components/monitoring/sla/SLAMonitor.tsx(1461,30): error TS2304: Cannot find name 'handleRefresh'.
+components/monitoring/sla/SLAMonitor.tsx(1465,72): error TS2304: Cannot find name 'setShowCreateModal'.
+components/monitoring/sla/SLAMonitor.tsx(1474,12): error TS2552: Cannot find name 'renderOverviewCards'. Did you mean 'renderOverview'?
+components/monitoring/sla/SLAMonitor.tsx(1479,12): error TS2304: Cannot find name 'renderCharts'.
+components/monitoring/sla/SLAMonitor.tsx(1483,10): error TS2304: Cannot find name 'renderServiceTable'.
+components/monitoring/sla/SLAMonitor.tsx(1486,31): error TS2552: Cannot find name 'renderSlaTargetDetails'. Did you mean 'renderSlaDetails'?
+components/ui/monaco-editor.tsx(81,42): error TS7030: Not all code paths return a value.
+lib/monitoring/index.ts(25,3): error TS2614: Module '"./sla-monitoring-service"' has no exported member 'SLAComplianceReport'. Did you mean to use 'import SLAComplianceReport from "./sla-monitoring-service"' instead?
+lib/monitoring/index.ts(26,3): error TS2614: Module '"./sla-monitoring-service"' has no exported member 'SLAMonitoringConfig'. Did you mean to use 'import SLAMonitoringConfig from "./sla-monitoring-service"' instead?
+lib/monitoring/index.ts(38,3): error TS2614: Module '"./fault-recovery-service"' has no exported member 'RecoveryContext'. Did you mean to use 'import RecoveryContext from "./fault-recovery-service"' instead?
+lib/monitoring/index.ts(39,3): error TS2724: '"./fault-recovery-service"' has no exported member named 'RecoveryOptions'. Did you mean 'RecoveryAction'?
+lib/monitoring/index.ts(47,3): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'AnomalySeverity'. Did you mean to use 'import AnomalySeverity from "../ai/predictive-maintenance"' instead?
+lib/monitoring/index.ts(48,3): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'HealthScoreResult'. Did you mean to use 'import HealthScoreResult from "../ai/predictive-maintenance"' instead?
+lib/monitoring/index.ts(53,3): error TS18004: No value exists in scope for the shorthand property 'monitoringIntegrationService'. Either declare one or provide an initializer.
+lib/monitoring/index.ts(54,3): error TS18004: No value exists in scope for the shorthand property 'slaMonitoringService'. Either declare one or provide an initializer.
+lib/monitoring/index.ts(55,3): error TS18004: No value exists in scope for the shorthand property 'faultRecoveryService'. Either declare one or provide an initializer.
+lib/monitoring/monitoring-integration-service.ts(17,42): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'HealthScoreResult'. Did you mean to use 'import HealthScoreResult from "../ai/predictive-maintenance"' instead?
+lib/monitoring/monitoring-integration-service.ts(223,53): error TS2339: Property 'getStatus' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(225,54): error TS2554: Expected 0 arguments, but got 1.
+lib/monitoring/monitoring-integration-service.ts(231,36): error TS2339: Property 'initialize' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(512,51): error TS2339: Property 'getStatus' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(517,48): error TS2339: Property 'getComplianceRate' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(529,41): error TS2339: Property 'getLastCheckTime' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(531,39): error TS2339: Property 'getMetrics' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(532,39): error TS2551: Property 'getSLATargets' does not exist on type 'SLAMonitoringService'. Did you mean 'getSLATarget'?
+lib/monitoring/monitoring-integration-service.ts(573,58): error TS2339: Property 'getPreviousHealthScore' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(584,47): error TS2339: Property 'getMetrics' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(585,50): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(586,50): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(587,52): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(588,46): error TS2339: Property 'getRecentEvents' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(591,41): error TS7006: Parameter 'e' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(592,41): error TS7006: Parameter 'e' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(625,52): error TS2339: Property 'getMetrics' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(626,38): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(627,41): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(628,39): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(635,39): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(636,35): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(637,37): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(638,34): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(641,48): error TS2339: Property 'getComplianceRate' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(699,28): error TS2339: Property 'updateCheckInterval' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(723,32): error TS2339: Property 'addSLATarget' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(753,52): error TS2339: Property 'generateReport' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(813,36): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(846,28): error TS2339: Property 'stop' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/sla-monitoring-service.ts(129,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(139,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(149,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(159,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(168,36): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(169,36): error TS2341: Property 'dataPoints' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(170,36): error TS2341: Property 'anomalies' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(194,28): error TS7006: Parameter 'anomaly' implicitly has an 'any' type.
+lib/monitoring/sla-monitoring-service.ts(195,49): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(220,49): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(288,51): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+src/modules/emotion-sound-platform/demo.tsx(183,13): error TS7030: Not all code paths return a value.

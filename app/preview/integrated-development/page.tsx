@@ -1,19 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Code2, FileText, Users, FolderOpen, Sparkles, Layers, Terminal, Share2, Settings, Zap } from "lucide-react"
-import IntegratedCodeGenerator from "@/components/preview/integrated-code-generator"
-import EnhancedCodeSandbox from "@/components/preview/enhanced-code-sandbox"
-import CollaborativeEditor from "@/components/preview/collaborative-editor"
-import ProjectIntegrationPanel from "@/components/preview/project-integration-panel"
-import TemplateSystemIntegration from "@/components/preview/template-system-integration"
-import { useToast } from "@/hooks/use-toast"
+import dynamic from "next/dynamic"
+import { useToast } from "@/lib/utils/client-toast"
 
 export default function IntegratedDevelopmentPage() {
   const [activeTab, setActiveTab] = useState("generator")
@@ -64,29 +59,22 @@ export default function IntegratedDevelopmentPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-center space-y-4"
-        >
+        <div className="text-center space-y-4 transition-opacity duration-300">
           <div className="w-16 h-16 bg-gradient-to-r from-cloud-blue-500 to-mint-green rounded-full flex items-center justify-center mx-auto">
+            {/* 保留脉冲动效的图标，使用 Tailwind 轻量动画 */}
             <Sparkles className="h-8 w-8 text-white animate-pulse" />
           </div>
           <h2 className="text-xl font-semibold">正在初始化集成开发环境...</h2>
           <p className="text-muted-foreground">请稍候，正在加载所有功能模块</p>
-        </motion.div>
+        </div>
       </div>
     )
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* 头部导航 */}
-      <motion.header
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white border-b border-gray-200 sticky top-0 z-50"
-      >
+      {/* 头部导航：去除 framer-motion，使用静态元素与 CSS 过渡 */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -131,11 +119,12 @@ export default function IntegratedDevelopmentPage() {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
-      {/* 主要内容 */}
+      {/* 主要内容：去除 framer-motion 包裹 */}
       <main className="container mx-auto px-4 py-6">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+        <div className="transition-opacity duration-300">
+          {/* 标签导航与内容保持不变 */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
             {/* 标签导航 */}
             <div className="bg-white rounded-lg border border-gray-200 p-1">
@@ -179,14 +168,8 @@ export default function IntegratedDevelopmentPage() {
             </div>
 
             {/* 标签内容 */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-              >
+            <div>
+              <div key={activeTab}>
                 <TabsContent value="generator" className="space-y-6">
                   <Card>
                     <CardHeader>
@@ -266,19 +249,14 @@ export default function IntegratedDevelopmentPage() {
                     </CardContent>
                   </Card>
                 </TabsContent>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </div>
           </Tabs>
-        </motion.div>
+        </div>
       </main>
 
       {/* 底部状态栏 */}
-      <motion.footer
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="bg-white border-t border-gray-200 mt-8"
-      >
+      <footer className="bg-white border-t border-gray-200 mt-8">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="flex items-center space-x-4">
@@ -296,7 +274,14 @@ export default function IntegratedDevelopmentPage() {
             </div>
           </div>
         </div>
-      </motion.footer>
+      </footer>
     </div>
   )
 }
+
+// 动态导入预览模块，禁用 SSR 以减少首屏体积
+const IntegratedCodeGenerator = dynamic(() => import("@/components/preview/integrated-code-generator"), { ssr: false })
+const EnhancedCodeSandbox = dynamic(() => import("@/components/preview/enhanced-code-sandbox"), { ssr: false })
+const CollaborativeEditor = dynamic(() => import("@/components/preview/collaborative-editor"), { ssr: false })
+const ProjectIntegrationPanel = dynamic(() => import("@/components/preview/project-integration-panel"), { ssr: false })
+const TemplateSystemIntegration = dynamic(() => import("@/components/preview/template-system-integration"), { ssr: false })

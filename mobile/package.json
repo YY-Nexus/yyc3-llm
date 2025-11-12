@@ -61,5 +61,6 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "packageManager": "npm@10"
 }

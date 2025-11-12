@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -23,6 +23,11 @@ interface BenchmarkResult {
   memoryUsage: number
   completed: boolean
   error?: string
+}
+
+// 组件 Props 接口
+interface ModelBenchmarkProps {
+  models?: EnhancedOllamaModel[]
 }
 
 // 基准测试提示词
@@ -50,7 +55,7 @@ const BENCHMARK_PROMPTS = {
   ],
 }
 
-export default function ModelBenchmark() {
+export default function ModelBenchmark({ models = [] }: ModelBenchmarkProps) {
   const [selectedModels, setSelectedModels] = useState<string[]>([])
   const [availableModels, setAvailableModels] = useState<EnhancedOllamaModel[]>([])
   const [benchmarkType, setBenchmarkType] = useState<BenchmarkType>("speed")
@@ -60,11 +65,21 @@ export default function ModelBenchmark() {
   const [activeTab, setActiveTab] = useState("setup")
   const [error, setError] = useState<string | null>(null)
 
+  // 初始化可用模型
+  useEffect(() => {
+    if (models.length > 0) {
+      const readyModels = models.filter((m) => m.status === "ready")
+      setAvailableModels(readyModels)
+    } else {
+      loadAvailableModels()
+    }
+  }, [models])
+
   // 加载可用模型
   const loadAvailableModels = async () => {
     try {
-      const models = enhancedOllamaService.getAllModels().filter((m) => m.status === "ready")
-      setAvailableModels(models)
+      const allModels = enhancedOllamaService.getAllModels().filter((m) => m.status === "ready")
+      setAvailableModels(allModels)
       setError(null)
     } catch (err) {
       setError("加载模型失败，请确保Ollama服务正在运行")

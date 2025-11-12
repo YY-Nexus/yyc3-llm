@@ -1,0 +1,8 @@
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:11:18: Unexpected any. Specify a different type. [Warning/@typescript-eslint/no-explicit-any]
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:122:28: Unexpected any. Specify a different type. [Warning/@typescript-eslint/no-explicit-any]
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:711:9: 'componentImports' is never reassigned. Use 'const' instead. [Error/prefer-const]
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:712:9: 'componentElements' is never reassigned. Use 'const' instead. [Error/prefer-const]
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:1045:32: Unexpected any. Specify a different type. [Warning/@typescript-eslint/no-explicit-any]
+/Users/yanyu/Desktop/7/桌面 - YanYu/生成式人工智能提示词/已测试完成/YanYu-LLM/src/tools/yyc3-emotion-reuse-toolkit.ts:1048:30: Unexpected any. Specify a different type. [Warning/@typescript-eslint/no-explicit-any]
+
+6 problems

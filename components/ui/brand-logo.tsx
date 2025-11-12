@@ -5,7 +5,7 @@ import { Logo3D } from "./logo-3d"
 import { logoVariants } from "@/lib/brand-system"
 
 interface BrandLogoProps {
-  variant?: "image" | "3d" | "text"
+  variant?: "image" | "3d" | "text" | "default"
   size?: keyof typeof logoVariants.sizes
   context?: keyof typeof logoVariants.contexts
   showText?: boolean

@@ -1,14 +1,16 @@
 "use client"
 
-import { motion } from "framer-motion"
+import dynamic from "next/dynamic"
 import { type ModuleType, moduleConfigs } from "@/types/modules"
-import AICodeGeneration from "@/components/modules/ai-code-generation"
-import AppDevelopment from "@/components/modules/app-development"
-import RealTimePreview from "@/components/modules/real-time-preview"
-import AutomationProduction from "@/components/modules/automation-production"
-import FileReview from "@/components/modules/file-review"
-import ScoreAnalysis from "@/components/modules/score-analysis"
-import DeploymentManagement from "@/components/modules/deployment-management"
+
+const AICodeGeneration = dynamic(() => import("@/components/modules/ai-code-generation"), { ssr: false })
+const AppDevelopment = dynamic(() => import("@/components/modules/app-development"), { ssr: false })
+const RealTimePreview = dynamic(() => import("@/components/modules/real-time-preview"), { ssr: false })
+const AutomationProduction = dynamic(() => import("@/components/modules/automation-production"), { ssr: false })
+const FileReview = dynamic(() => import("@/components/modules/file-review"), { ssr: false })
+const ScoreAnalysis = dynamic(() => import("@/components/modules/score-analysis"), { ssr: false })
+const DeploymentManagement = dynamic(() => import("@/components/modules/deployment-management"), { ssr: false })
+const LocalModelEngine = dynamic(() => import("@/components/modules/local-model-engine"), { ssr: false })
 
 interface MainContentProps {
   activeModule: ModuleType
@@ -32,6 +34,8 @@ export default function MainContent({ activeModule }: MainContentProps) {
         return <ScoreAnalysis />
       case "deployment-management":
         return <DeploymentManagement />
+      case "local-model-engine":
+        return <LocalModelEngine />
       default:
         return <DefaultModuleView activeModule={activeModule} />
     }
@@ -39,16 +43,10 @@ export default function MainContent({ activeModule }: MainContentProps) {
 
   return (
     <div className="p-6 min-h-full">
-      <motion.div
-        key={activeModule} // 关键：模块切换时重新动画
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3 }}
-        className="h-full"
-      >
+      {/* 轻量级过渡，避免引入 framer-motion 主包到首屏 */}
+      <div className="h-full transition-opacity duration-300 ease-out">
         {renderModuleContent()}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -60,14 +58,9 @@ function DefaultModuleView({ activeModule }: { activeModule: ModuleType }) {
   return (
     <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-8 h-full">
       <div className="text-center mb-8">
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, type: "spring" }}
-          className="text-6xl mb-4"
-        >
+        <div className="text-6xl mb-4 transform transition-transform duration-500">
           {moduleConfig?.icon}
-        </motion.div>
+        </div>
         <h2 className="text-3xl font-bold text-gray-800 mb-2">{moduleConfig?.name}</h2>
         <p className="text-gray-600 text-lg">{moduleConfig?.description}</p>
       </div>
@@ -82,12 +75,10 @@ function DefaultModuleView({ activeModule }: { activeModule: ModuleType }) {
           { title: "自动化", desc: "流程自动化处理" },
           { title: "协作共享", desc: "团队协作与分享功能" },
         ].map((feature, index) => (
-          <motion.div
+          <div
             key={feature.title}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            className={`bg-gradient-to-br from-white to-${moduleConfig?.color}/10 p-6 rounded-lg shadow-md hover-lift card-3d cursor-pointer`}
+            className={`bg-gradient-to-br from-white to-${moduleConfig?.color}/10 p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300`}
+            style={{ transitionDelay: `${index * 100}ms` }}
           >
             <div
               className={`w-12 h-12 bg-gradient-to-r from-${moduleConfig?.color} to-${moduleConfig?.color}/70 rounded-lg mb-4 flex items-center justify-center`}
@@ -97,22 +88,17 @@ function DefaultModuleView({ activeModule }: { activeModule: ModuleType }) {
             <h3 className="font-semibold text-gray-800 mb-2">{feature.title}</h3>
             <p className="text-sm text-gray-600">{feature.desc}</p>
             <div className="mt-4 text-xs text-gray-400">即将上线</div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* 开发进度指示 */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="mt-8 text-center"
-      >
+      <div className="mt-8 text-center opacity-0 animate-fade-in">
         <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-coral-pink/10 to-mint-green/10 px-4 py-2 rounded-full">
           <div className="w-2 h-2 bg-lemon-yellow rounded-full animate-pulse"></div>
           <span className="text-sm text-gray-600">模块开发中，敬请期待</span>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

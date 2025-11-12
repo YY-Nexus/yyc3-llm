@@ -10,18 +10,123 @@
 # production
 /build
 
-# debug
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
-# env files
+# Diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and instrumentation
+lib-cov
+coverage
+coverage/
+*.lcov
+.nyc_output
+
+# Build and cache directories
+/node_modules
+/build
+/.next/
+/out/
+next-env.d.ts
+.nuxt
+dist
+.cache
+.parcel-cache
+
+# Environment files
 .env*
 
-# vercel
+# TypeScript
+*.tsbuildinfo
+
+# IDE and editor files
+.idea
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows specific files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+
+# Temporary analysis files
+*.tsc*.txt
+lint-*.txt
+rc*.json
+
+# Test and benchmark files
+pa11yci.json
+scripts/perf-benchmark.js
+scripts/benchmark.js
+
+# Copy/backup files
+* copy.*
+*_copy
+
+# Temporary files
+*.tmp
+*.temp
+
+# Log directories
+.logs/
+
+# Vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Additional directories and files
+artifacts/
+.grunt
+bower_components
+.lock-wscript
+build/Release
+jspm_packages/
+web_modules/
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.temp
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vscode-test
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Gatsby files
+.cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# vuepress build output
+.vuepress/dist

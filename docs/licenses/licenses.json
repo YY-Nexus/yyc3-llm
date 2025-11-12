@@ -1,0 +1,49 @@
+{
+  "updatedAt": "2025-10-24T09:00:00Z",
+  "licenses": [
+    {
+      "modelId": "CogAgent",
+      "modelName": "CogAgent",
+      "licenseNumber": "202504239926233136",
+      "company": "洛阳沫言酒店管理有限公司",
+      "creditCode": "91410303MA9L80DR34",
+      "expiryType": "permanent",
+      "status": "authorized",
+      "issuer": "北京智谱华章科技有限公司",
+      "issuedAt": "2025-04-22"
+    },
+    {
+      "modelId": "CodeGeeX4-ALL-9B",
+      "modelName": "CodeGeeX4-ALL-9B",
+      "licenseNumber": "202502086680265122",
+      "company": "洛阳沫言酒店管理有限公司",
+      "creditCode": "91410303MA9L80DR34",
+      "expiryType": "permanent",
+      "status": "authorized",
+      "issuer": "智谱·AI",
+      "issuedAt": "2025-02-07"
+    },
+    {
+      "modelId": "CogVideoX-5B",
+      "modelName": "CogVideoX-5B",
+      "licenseNumber": "202412141063789588",
+      "company": "洛阳沫言酒店管理有限公司",
+      "creditCode": "91410303MA9L80DR34",
+      "expiryType": "permanent",
+      "status": "authorized",
+      "issuer": "智谱·AI",
+      "issuedAt": "2024-12-13"
+    },
+    {
+      "modelId": "ChatGLM3-6B",
+      "modelName": "ChatGLM3-6B",
+      "licenseNumber": "202411283053152737",
+      "company": "洛阳沫言酒店管理有限公司",
+      "creditCode": "91410303MA9L80DR34",
+      "expiryType": "permanent",
+      "status": "authorized",
+      "issuer": "众久科技（智谱AI授权代理）",
+      "issuedAt": "2024-11-27"
+    }
+  ]
+}

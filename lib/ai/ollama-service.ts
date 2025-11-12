@@ -421,7 +421,7 @@ export class OllamaService {
 
   // 获取模型统计
   public getModelStats(): Map<string, OllamaModel> {
-    return new Map(this.models)
+    return new Map(this.models);
   }
 
   // 清理资源

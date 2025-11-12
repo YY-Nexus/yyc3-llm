@@ -1,6 +1,56 @@
-"use client"
-
 import { useState, useEffect } from "react"
+
+// 类型定义
+export type ModelType = 'chat' | 'code' | 'multimodal'
+export type ModelProvider = "ollama" | "openai" | "anthropic" | "google"
+
+
+
+
+export interface ModelManagementConfig {
+  ollamaUrl: string
+  modelCacheDir: string
+  defaultModels: Array<{
+    id: string
+    name: string
+    type: ModelType
+    provider: string
+  }>
+  autoDownload: boolean
+  maxConcurrentDownloads: number
+  connectionTimeout: number
+  retryAttempts: number
+}
+
+export interface AIModel {
+  id: string
+  name: string
+  type: ModelType
+  provider: ModelProvider
+  status: 'ready' | 'downloading' | 'not_downloaded' | 'download_failed' | 'unavailable' | 'unknown'
+  size: number
+  lastUsed: string | Date | null
+  parameters: string
+  quantization: string
+  createdAt: Date
+  updatedAt?: Date
+  error?: string
+  usageCount?: number
+  downloadProgress?: number
+}
+
+export interface ModelTask {
+  id: string;
+  modelId: string;
+  type: 'download' | 'delete' | 'update';
+  status: 'pending' | 'downloading' | 'completed' | 'failed';
+  progress: number;
+  createdAt: Date;
+  updatedAt: Date;
+  startedAt?: Date;
+  completedAt?: Date;
+  error?: string;
+}
 
 // AI模型管理中心 - 统一管理本地和云端AI模型
 export class ModelManagementCenter {
@@ -8,39 +58,29 @@ export class ModelManagementCenter {
   private models = new Map<string, AIModel>()
   private modelTasks = new Map<string, ModelTask>()
   private config: ModelManagementConfig
-
-  private constructor() {
-    this.config = {
-      ollamaUrl: process.env.NEXT_PUBLIC_OLLAMA_URL || "http://localhost:11434",
-      modelCacheDir: "/tmp/yanyu-models",
-      defaultModels: [
-        { id: "codellama:7b", name: "CodeLlama 7B", type: "code", provider: "ollama" },
-        { id: "llama3:8b", name: "Llama 3 8B", type: "chat", provider: "ollama" },
-        { id: "phi3:mini", name: "Phi-3 Mini", type: "chat", provider: "ollama" },
-      ],
-      autoDownload: false,
-      maxConcurrentDownloads: 1,
-    }
-
-    this.initializeModels()
+  private _connectionStatus: 'connected' | 'error' | 'unknown' = 'unknown';
+  private _errorMessage: string | null = null;
+  
+  // Getters for connection status
+  public get connectionStatus(): 'connected' | 'error' | 'unknown' {
+    return this._connectionStatus;
   }
-
-  public static getInstance(): ModelManagementCenter {
-    if (!ModelManagementCenter.instance) {
-      ModelManagementCenter.instance = new ModelManagementCenter()
-    }
-    return ModelManagementCenter.instance
+  
+  public get errorMessage(): string | null {
+    return this._errorMessage;
   }
-
+  
   // 初始化模型列表
   private async initializeModels(): Promise<void> {
     try {
       // 获取本地已安装的Ollama模型
-      await this.fetchOllamaModels()
+      await this.fetchOllamaModels();
 
       // 添加默认模型（如果不存在）
       for (const defaultModel of this.config.defaultModels) {
         if (!this.models.has(defaultModel.id)) {
+          // 确保provider是有效的ModelProvider类型
+          const provider = defaultModel.provider as ModelProvider;
           this.models.set(defaultModel.id, {
             ...defaultModel,
             status: "not_downloaded",
@@ -49,6 +89,7 @@ export class ModelManagementCenter {
             parameters: defaultModel.id.includes("7b") ? "7B" : defaultModel.id.includes("8b") ? "8B" : "Unknown",
             quantization: defaultModel.id.includes("q4_0") ? "Q4_0" : "None",
             createdAt: new Date(),
+            provider // 使用类型断言后的provider
           })
         }
       }
@@ -58,73 +99,269 @@ export class ModelManagementCenter {
       console.error("初始化模型失败:", error)
     }
   }
+  
+  private constructor() {
+    // 安全地获取环境变量并添加默认值
+    const ollamaUrl = process.env.NEXT_PUBLIC_OLLAMA_URL 
+      ? process.env.NEXT_PUBLIC_OLLAMA_URL.trim() 
+      : "http://localhost:11434";
+      
+    this.config = {
+      ollamaUrl,
+      modelCacheDir: "/tmp/yanyu-models",
+      defaultModels: [
+        { id: "codellama:7b", name: "CodeLlama 7B", type: "code", provider: "ollama" },
+        { id: "llama3:8b", name: "Llama 3 8B", type: "chat", provider: "ollama" },
+        { id: "phi3:mini", name: "Phi-3 Mini", type: "chat", provider: "ollama" },
+      ],
+      autoDownload: false,
+      maxConcurrentDownloads: 1,
+      // 添加连接配置
+      connectionTimeout: 5000, // 5秒超时
+      retryAttempts: 2,
+    }
+    
+    // 异步初始化，不阻塞构造函数
+    this.initializeModels().catch(err => {
+      console.error("模型初始化失败:", err);
+    })
+  }
+
+  // 刷新模型列表
+  public async refreshModels(): Promise<void> {
+    this._connectionStatus = 'unknown';
+    this._errorMessage = null;
+    await this.fetchOllamaModels();
+  }
+
+  // 获取推荐模型
+  public getRecommendedModels(type: ModelType, limit: number = 3): AIModel[] {
+    return this.getModelsByType(type)
+      .filter(model => model.status === 'ready')
+      .sort((a, b) => {
+        // 优先排序有lastUsed的模型
+        if (a.lastUsed && b.lastUsed) {
+          return new Date(b.lastUsed).getTime() - new Date(a.lastUsed).getTime();
+        }
+        return a.lastUsed ? -1 : 1;
+      })
+      .slice(0, limit);
+  }
+
+  // 删除模型
+
+
+  // 获取所有任务
+  public getAllTasks(): ModelTask[] {
+    return Array.from(this.modelTasks.values());
+  }
+
+  
+
+
+  // 模拟加载模型（用于测试）
+  private simulateModelDownload(modelId: string, task: ModelTask): void {
+    // 仅用于开发测试
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random() * 10;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        
+        task.status = 'completed';
+        task.progress = 100;
+        task.completedAt = new Date();
+        
+        // 更新模型状态
+        const model = this.models.get(modelId);
+        if (model) {
+          this.models.set(modelId, {
+            ...model,
+            status: 'ready',
+            size: Math.floor(Math.random() * 1000000000), // 随机大小
+            updatedAt: new Date()
+          });
+        }
+      }
+      
+      task.progress = Math.min(progress, 100);
+      task.updatedAt = new Date();
+      this.modelTasks.set(modelId, { ...task });
+    }, 500);
+  }
+  
+  public static getInstance(): ModelManagementCenter {
+    if (!ModelManagementCenter.instance) {
+      ModelManagementCenter.instance = new ModelManagementCenter();
+    }
+    return ModelManagementCenter.instance;
+  }
+
+  
+
+
 
   // 获取Ollama模型列表
   private async fetchOllamaModels(): Promise<void> {
-    try {
-      const response = await fetch(`${this.config.ollamaUrl}/api/tags`)
+    const maxRetries = 3; // 最大重试次数
+    const retryDelay = 1000; // 重试间隔（毫秒）
+    let lastError: Error | null = null;
 
-      if (!response.ok) {
-        throw new Error(`获取Ollama模型失败: ${response.status}`)
-      }
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        // 添加连接超时处理
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5秒超时
+        
+        console.log(`[尝试 ${attempt + 1}/${maxRetries}] 连接到Ollama服务: ${this.config.ollamaUrl}`);
+        
+        const response = await fetch(`${this.config.ollamaUrl}/api/tags`, {
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          method: 'GET',
+        })
+        
+        clearTimeout(timeoutId); // 清除超时定时器
 
-      const data = await response.json()
-
-      if (data.models) {
-        for (const model of data.models) {
-          const modelId = model.name
-          const existingModel = this.models.get(modelId)
-
-          this.models.set(modelId, {
-            id: modelId,
-            name: this.formatModelName(modelId),
-            type: this.inferModelType(modelId),
-            provider: "ollama",
-            status: "ready",
-            size: model.size || 0,
-            lastUsed: existingModel?.lastUsed || null,
-            parameters: this.inferModelParameters(modelId),
-            quantization: this.inferModelQuantization(modelId),
-            createdAt: existingModel?.createdAt || new Date(),
-            updatedAt: new Date(),
-          })
+        if (!response.ok) {
+          const errorMessage = `获取Ollama模型失败: ${response.status} ${response.statusText}`;
+          console.error(`[尝试 ${attempt + 1}] ${errorMessage}`);
+          
+          // 如果是服务端错误且不是最后一次尝试，进行重试
+          if (response.status >= 500 && attempt < maxRetries - 1) {
+            console.log(`[尝试 ${attempt + 1}] 服务端错误，${retryDelay}ms后重试...`);
+            await new Promise(resolve => setTimeout(resolve, retryDelay));
+            continue;
+          }
+          
+          throw new Error(errorMessage);
         }
-      }
-    } catch (error) {
-      console.error("获取Ollama模型列表失败:", error)
-      // 如果获取失败，可能是Ollama服务未启动，标记所有Ollama模型为未知状态
-      for (const [id, model] of this.models.entries()) {
-        if (model.provider === "ollama") {
-          this.models.set(id, { ...model, status: "unknown" })
+
+        try {
+          const data = await response.json();
+          
+          if (data.models && Array.isArray(data.models)) {
+            console.log(`[成功] 获取到 ${data.models.length} 个Ollama模型`);
+            
+            for (const model of data.models) {
+              const modelId = model.name;
+              const existingModel = this.models.get(modelId);
+
+              this.models.set(modelId, {
+                id: modelId,
+                name: this.formatModelName(modelId),
+                type: this.inferModelType(modelId),
+                provider: "ollama",
+                status: "ready",
+                size: model.size || 0,
+                lastUsed: existingModel?.lastUsed || null,
+                parameters: this.inferModelParameters(modelId),
+                quantization: this.inferModelQuantization(modelId),
+                createdAt: existingModel?.createdAt || new Date(),
+                updatedAt: new Date(),
+                error: undefined, // 清除之前的错误信息
+              });
+            }
+          } else {
+            console.warn("Ollama API 返回了无效的模型数据结构");
+          }
+          
+          // 设置连接状态为已连接
+          this.setConnectionStatus('connected');
+          return; // 成功获取，直接返回
+        } catch (jsonError) {
+          console.error(`[尝试 ${attempt + 1}] 解析Ollama API响应失败:`, jsonError);
+          throw new Error('解析Ollama模型数据失败');
         }
+      } catch (error) {
+        lastError = error as Error;
+        console.error(`[尝试 ${attempt + 1}] 获取Ollama模型失败:`, error);
+        
+        // 如果是最后一次尝试或不是网络相关错误，不再重试
+        if (attempt >= maxRetries - 1 || 
+            (lastError && !(lastError.name === 'AbortError' || 
+                           lastError.message.includes('Network') ||
+                           lastError.message.includes('fetch')))) {
+          break;
+        }
+        
+        console.log(`[尝试 ${attempt + 1}] 连接失败，${retryDelay}ms后重试...`);
+        await new Promise(resolve => setTimeout(resolve, retryDelay));
       }
     }
+    
+    // 所有重试都失败，设置错误状态
+      if (lastError) {
+        // 设置连接状态为错误
+        this.setConnectionStatus('error', lastError.name === 'AbortError' ? 
+          '连接Ollama服务超时，请检查服务是否运行' : 
+          '无法连接到Ollama服务，请确保Ollama已安装并正在运行');
+        
+        // 根据错误类型提供更具体的错误信息
+        let errorMessage: string;
+      
+      if (lastError.name === 'AbortError') {
+        errorMessage = '连接Ollama服务超时，请检查服务是否运行';
+      } else if (lastError.message.includes('Network') || lastError.message.includes('fetch')) {
+        errorMessage = '网络连接失败，请检查Ollama服务是否可用';
+      } else {
+        errorMessage = `Ollama服务错误: ${lastError.message}`;
+      }
+      
+      console.error(`[最终] ${errorMessage}`);
+      
+      // 更新所有Ollama模型状态
+      for (const [id, model] of this.models.entries()) {
+        if (model.provider === "ollama") {
+          this.models.set(id, { 
+            ...model, 
+            status: "unavailable",
+            error: errorMessage,
+            updatedAt: new Date()
+          });
+        }
+      }
+      
+      // 同时检查是否有已安装但未在模型列表中的模型
+      this.scanForOllamaModels();
+    }
+  }
+  
+  // 扫描Ollama已安装但未在模型列表中的模型
+  private scanForOllamaModels(): void {
+    // 这里可以添加逻辑，从其他来源（如本地配置）获取已知的Ollama模型
+    // 目前仅作为占位方法
+    console.log('扫描可能的Ollama模型...');
   }
 
   // 格式化模型名称
   private formatModelName(modelId: string): string {
     // 将模型ID转换为更友好的显示名称
-    const parts = modelId.split(":")
-    const baseName = parts[0]
-    const version = parts[1] || ""
+    const parts = modelId.split(':');
+    const baseName = parts[0];
+    const version = parts[1] || '';
 
     const nameMap: Record<string, string> = {
-      codellama: "CodeLlama",
-      llama3: "Llama 3",
-      llama2: "Llama 2",
-      phi3: "Phi-3",
-      mistral: "Mistral",
-      qwen: "Qwen",
-      gemma: "Gemma",
-    }
+      codellama: 'CodeLlama',
+      llama3: 'Llama 3',
+      llama2: 'Llama 2',
+      phi3: 'Phi-3',
+      mistral: 'Mistral',
+      qwen: 'Qwen',
+      gemma: 'Gemma'
+    };
 
-    const formattedName = nameMap[baseName] || baseName.charAt(0).toUpperCase() + baseName.slice(1)
+    const formattedName = nameMap[baseName] || baseName.charAt(0).toUpperCase() + baseName.slice(1);
 
     if (version) {
-      return `${formattedName} ${version}`
+      return `${formattedName} ${version}`;
     }
 
-    return formattedName
+    return formattedName;
   }
 
   // 推断模型类型
@@ -172,6 +409,19 @@ export class ModelManagementCenter {
   public getAllModels(): AIModel[] {
     return Array.from(this.models.values())
   }
+
+  // 设置连接状态
+  private setConnectionStatus(status: 'connected' | 'error' | 'unknown', errorMessage?: string): void {
+    this._connectionStatus = status;
+    if (status === 'error' && errorMessage) {
+      this._errorMessage = errorMessage;
+    } else if (status === 'connected') {
+      this._errorMessage = null;
+    }
+  }
+  
+  // 下载模型
+
 
   // 获取特定类型的模型
   public getModelsByType(type: ModelType): AIModel[] {
@@ -369,124 +619,118 @@ export class ModelManagementCenter {
 
   // 获取模型任务详情
   public getModelTask(taskId: string): ModelTask | undefined {
-    for (const task of this.modelTasks.values()) {
+    // 通过taskId遍历查找任务
+    for (const [id, task] of this.modelTasks.entries()) {
       if (task.id === taskId) {
-        return task
+        return task;
       }
     }
-    return undefined
+    return undefined;
   }
 
-  // 获取模型统计信息
+  // 获取模型统计信息（更新版本，包含provider统计）
   public getModelStats(): ModelStats {
-    const models = this.getAllModels()
-
+    const models = Array.from(this.models.values());
     return {
       total: models.length,
-      ready: models.filter((m) => m.status === "ready").length,
-      downloading: models.filter((m) => m.status === "downloading").length,
-      notDownloaded: models.filter((m) => m.status === "not_downloaded").length,
+      ready: models.filter(m => m.status === 'ready').length,
+      downloading: models.filter(m => m.status === 'downloading').length,
+      notDownloaded: models.filter(m => m.status === 'not_downloaded').length,
       byType: {
-        chat: models.filter((m) => m.type === "chat").length,
-        code: models.filter((m) => m.type === "code").length,
-        multimodal: models.filter((m) => m.type === "multimodal").length,
+        chat: models.filter(m => m.type === 'chat').length,
+        code: models.filter(m => m.type === 'code').length,
+        multimodal: models.filter(m => m.type === 'multimodal').length
       },
       byProvider: {
-        ollama: models.filter((m) => m.provider === "ollama").length,
-        openai: models.filter((m) => m.provider === "openai").length,
-        anthropic: models.filter((m) => m.provider === "anthropic").length,
+        ollama: models.filter(m => m.provider === 'ollama').length,
+        openai: models.filter(m => m.provider === 'openai').length,
+        anthropic: models.filter(m => m.provider === 'anthropic').length,
+        google: models.filter(m => m.provider === 'google').length
       },
-      totalSize: models.reduce((sum, m) => sum + (m.size || 0), 0),
-    }
-  }
-
-  // 刷新模型列表
-  public async refreshModels(): Promise<void> {
-    await this.fetchOllamaModels()
+      totalSize: models.reduce((sum, model) => sum + model.size, 0)
+    };
   }
 
   // 使用模型（记录使用时间）
   public useModel(modelId: string): void {
-    const model = this.models.get(modelId)
+    const model = this.models.get(modelId);
     if (model) {
       this.models.set(modelId, {
         ...model,
         lastUsed: new Date(),
-        usageCount: (model.usageCount || 0) + 1,
-      })
+        usageCount: (model.usageCount || 0) + 1
+      });
     }
   }
-
-  // 获取推荐模型
-  public getRecommendedModels(type: ModelType = "chat", count = 3): AIModel[] {
-    const availableModels = this.getAvailableModels().filter((m) => m.type === type)
-
-    // 按使用次数和最近使用时间排序
-    return availableModels
-      .sort((a, b) => {
-        // 首先按使用次数排序
-        const countDiff = (b.usageCount || 0) - (a.usageCount || 0)
-        if (countDiff !== 0) return countDiff
-
-        // 其次按最近使用时间排序
-        if (a.lastUsed && b.lastUsed) {
-          return b.lastUsed.getTime() - a.lastUsed.getTime()
-        }
-
-        return a.lastUsed ? -1 : b.lastUsed ? 1 : 0
-      })
-      .slice(0, count)
-  }
 }
 
-// 类型定义
-export type ModelType = "chat" | "code" | "multimodal"
-export type ModelProvider = "ollama" | "openai" | "anthropic" | "google"
-export type ModelStatus = "ready" | "downloading" | "not_downloaded" | "download_failed" | "unknown"
+// React Hook for Model Management
+export const useModelManagement = (): {
+  models: AIModel[];
+  tasks: ModelTask[];
+  stats: ReturnType<ModelManagementCenter['getModelStats']> | undefined;
+  connectionStatus: 'connected' | 'error' | 'unknown';
+  errorMessage: string | null;
+  loading: boolean;
+  refreshModels: () => Promise<void>;
+  downloadModel: (modelId: string) => Promise<ModelTask>;
+  deleteModel: (modelId: string) => Promise<void>;
+  getRecommendedModels: (type: ModelType, limit?: number) => AIModel[];
+} => {
+  const [models, setModels] = useState<AIModel[]>([]);
+  const [tasks, setTasks] = useState<ModelTask[]>([]);
+  const [stats, setStats] = useState<ReturnType<ModelManagementCenter['getModelStats']> | undefined>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [updateInterval, setUpdateInterval] = useState<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const modelManager = ModelManagementCenter.getInstance();
+    
+    // 初始加载
+    const loadModels = (): void => {
+      const currentModels = modelManager.getAllModels();
+      const currentTasks = modelManager.getAllTasks();
+      const currentStats = modelManager.getModelStats();
+      
+      setModels(currentModels);
+      setTasks(currentTasks);
+      setStats(currentStats);
+      setLoading(false);
+    };
+
+    loadModels();
+
+    // 设置定期更新
+    const interval = setInterval(loadModels, 1000);
+    setUpdateInterval(interval);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, []);
+
+  const modelManager = ModelManagementCenter.getInstance();
+
+  return {
+    models,
+    tasks,
+    stats,
+    connectionStatus: modelManager.connectionStatus,
+    errorMessage: modelManager.errorMessage,
+    loading,
+    refreshModels: modelManager.refreshModels.bind(modelManager),
+    downloadModel: modelManager.downloadModel.bind(modelManager),
+    deleteModel: modelManager.deleteModel.bind(modelManager),
+    getRecommendedModels: modelManager.getRecommendedModels.bind(modelManager)
+  };
+};
+
+// 添加缺失的类型定义
+export type ModelStatus = "ready" | "downloading" | "not_downloaded" | "download_failed" | "unknown" | "unavailable"
 export type TaskType = "download" | "update" | "delete"
 export type TaskStatus = "pending" | "downloading" | "completed" | "failed"
-
-export interface AIModel {
-  id: string
-  name: string
-  type: ModelType
-  provider: ModelProvider
-  status: ModelStatus
-  size: number
-  lastUsed: Date | null
-  parameters: string
-  quantization: string
-  createdAt: Date
-  updatedAt?: Date
-  downloadProgress?: number
-  usageCount?: number
-}
-
-export interface ModelTask {
-  id: string
-  modelId: string
-  type: TaskType
-  status: TaskStatus
-  progress: number
-  createdAt: Date
-  updatedAt: Date
-  startedAt?: Date
-  completedAt?: Date
-  error?: string
-}
-
-export interface ModelManagementConfig {
-  ollamaUrl: string
-  modelCacheDir: string
-  defaultModels: Array<{
-    id: string
-    name: string
-    type: ModelType
-    provider: ModelProvider
-  }>
-  autoDownload: boolean
-  maxConcurrentDownloads: number
-}
 
 export interface ModelStats {
   total: number
@@ -501,58 +745,3 @@ export interface ModelStats {
 // 导出模型管理中心实例
 export const modelManagementCenter = ModelManagementCenter.getInstance()
 
-// React Hook - 使用模型管理中心
-export function useModelManagement() {
-  const [models, setModels] = useState<AIModel[]>([])
-  const [tasks, setTasks] = useState<ModelTask[]>([])
-  const [stats, setStats] = useState<ModelStats | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    // 初始加载
-    loadModels()
-
-    // 定期刷新
-    const interval = setInterval(() => {
-      loadModels()
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  const loadModels = async () => {
-    try {
-      await modelManagementCenter.refreshModels()
-      setModels(modelManagementCenter.getAllModels())
-      setTasks(modelManagementCenter.getModelTasks())
-      setStats(modelManagementCenter.getModelStats())
-      setLoading(false)
-    } catch (error) {
-      console.error("加载模型失败:", error)
-      setLoading(false)
-    }
-  }
-
-  const downloadModel = async (modelId: string) => {
-    await modelManagementCenter.downloadModel(modelId)
-    loadModels()
-  }
-
-  const deleteModel = async (modelId: string) => {
-    await modelManagementCenter.deleteModel(modelId)
-    loadModels()
-  }
-
-  return {
-    models,
-    tasks,
-    stats,
-    loading,
-    refreshModels: loadModels,
-    downloadModel,
-    deleteModel,
-    getModelsByType: (type: ModelType) => modelManagementCenter.getModelsByType(type),
-    getAvailableModels: () => modelManagementCenter.getAvailableModels(),
-    getRecommendedModels: (type?: ModelType, count?: number) => modelManagementCenter.getRecommendedModels(type, count),
-  }
-}

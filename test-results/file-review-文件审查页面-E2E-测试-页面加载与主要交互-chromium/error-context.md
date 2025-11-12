@@ -1,0 +1,185 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e8]:
+          - img "言語云³" [ref=e9]
+          - generic [ref=e10]: 深度堆栈智创引擎
+        - navigation [ref=e11]:
+          - generic [ref=e15] [cursor=pointer]:
+            - generic [ref=e16]: 🧠
+            - generic [ref=e17]:
+              - heading "模型引擎" [level=3] [ref=e18]
+              - paragraph [ref=e19]: 本地大模型全生命周期管理
+          - generic [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 🤖
+            - generic [ref=e25]:
+              - heading "AI代码生成" [level=3] [ref=e26]
+              - paragraph [ref=e27]: 智能生成多语言代码
+          - generic [ref=e31] [cursor=pointer]:
+            - generic [ref=e32]: 🛠️
+            - generic [ref=e33]:
+              - heading "应用开发" [level=3] [ref=e34]
+              - paragraph [ref=e35]: 低代码可视化开发
+          - generic [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: 👁️
+            - generic [ref=e41]:
+              - heading "实时预览" [level=3] [ref=e42]
+              - paragraph [ref=e43]: 多格式内容预览
+          - generic [ref=e47] [cursor=pointer]:
+            - generic [ref=e48]: ⚡
+            - generic [ref=e49]:
+              - heading "自动化生产" [level=3] [ref=e50]
+              - paragraph [ref=e51]: 任务调度与部署
+          - generic [ref=e55] [cursor=pointer]:
+            - generic [ref=e56]: 🔍
+            - generic [ref=e57]:
+              - heading "文件审查" [level=3] [ref=e58]
+              - paragraph [ref=e59]: 代码质量检测
+          - generic [ref=e63] [cursor=pointer]:
+            - generic [ref=e64]: 📊
+            - generic [ref=e65]:
+              - heading "评分分析" [level=3] [ref=e66]
+              - paragraph [ref=e67]: 质量评估与建议
+          - generic [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]: 🚀
+            - generic [ref=e73]:
+              - heading "部署管理" [level=3] [ref=e74]
+              - paragraph [ref=e75]: 多环境部署控制
+        - paragraph [ref=e80]: 言枢象限·语启未来
+      - generic [ref=e85]:
+        - generic [ref=e88]:
+          - generic [ref=e90]:
+            - button "搜索" [ref=e91] [cursor=pointer]:
+              - img [ref=e92]
+            - textbox "搜索功能、项目或文档" [ref=e95]:
+              - /placeholder: ""
+          - generic [ref=e96]:
+            - button [ref=e98] [cursor=pointer]
+            - button [ref=e104] [cursor=pointer]:
+              - img [ref=e106]
+            - button [ref=e111] [cursor=pointer]:
+              - img [ref=e113]
+            - button [ref=e116] [cursor=pointer]:
+              - img [ref=e118]
+            - button [ref=e122] [cursor=pointer]
+        - generic [ref=e128]:
+          - generic [ref=e132]:
+            - heading "言传千行代码丨语枢万物智联" [level=1] [ref=e134]
+            - generic [ref=e136]:
+              - combobox "选择大模型" [ref=e137]:
+                - option "GPT-4" [selected]
+                - option "Claude-3"
+                - option "Llama3"
+                - option "Qwen2"
+                - option "CodeLlama"
+              - combobox "选择目标语言" [ref=e138]:
+                - option "python" [selected]
+                - option "javascript"
+                - option "typescript"
+                - option "java"
+                - option "cpp"
+                - option "go"
+                - option "rust"
+                - option "php"
+              - button "分屏" [ref=e139] [cursor=pointer]:
+                - img [ref=e140]
+                - text: 分屏
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e146]: 暂无对话
+                - generic [ref=e147]:
+                  - textbox "请输入需求、问题或指令..." [ref=e148]
+                  - button "表情" [ref=e149] [cursor=pointer]:
+                    - img [ref=e150]
+                  - button "上传" [ref=e152] [cursor=pointer]:
+                    - img [ref=e153]
+                  - button "语音" [ref=e156] [cursor=pointer]:
+                    - img [ref=e157]
+                  - button "发送" [disabled] [ref=e159]:
+                    - img [ref=e160]
+                    - text: 发送
+              - generic [ref=e162]:
+                - generic [ref=e164]: 代码、文本、图片等智能生产预览区
+                - generic [ref=e165]:
+                  - button "复制" [disabled] [ref=e166]:
+                    - img [ref=e167]
+                    - text: 复制
+                  - button "清空" [ref=e170] [cursor=pointer]:
+                    - img [ref=e171]
+                    - text: 清空
+                  - button "下载" [ref=e175] [cursor=pointer]:
+                    - img [ref=e176]
+                    - text: 下载
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - button "仪表板" [ref=e182] [cursor=pointer]:
+                - generic [ref=e183]:
+                  - img [ref=e185]
+                  - generic [ref=e187]: 仪表板
+              - button "2 通知" [ref=e189] [cursor=pointer]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]:
+                    - img [ref=e192]
+                    - generic [ref=e195]: "2"
+                  - generic [ref=e196]: 通知
+              - button "1 任务" [ref=e197] [cursor=pointer]:
+                - generic [ref=e198]:
+                  - generic [ref=e199]:
+                    - img [ref=e200]
+                    - generic [ref=e203]: "1"
+                  - generic [ref=e204]: 任务
+              - button "助手" [ref=e205] [cursor=pointer]:
+                - generic [ref=e206]:
+                  - img [ref=e208]
+                  - generic [ref=e210]: 助手
+            - generic [ref=e212]:
+              - generic [ref=e213]:
+                - heading "系统状态" [level=4] [ref=e214]:
+                  - img [ref=e215]
+                  - text: 系统状态
+                - generic [ref=e217]:
+                  - generic [ref=e219]:
+                    - generic [ref=e220]: CPU使用率
+                    - generic [ref=e221]: 34%
+                  - generic [ref=e225]:
+                    - generic [ref=e226]: 内存使用率
+                    - generic [ref=e227]: 63%
+              - generic [ref=e230]:
+                - generic [ref=e231]:
+                  - img [ref=e233]
+                  - generic [ref=e236]: "5"
+                  - generic [ref=e237]: 在线用户
+                - generic [ref=e238]:
+                  - img [ref=e240]
+                  - generic [ref=e243]: "9"
+                  - generic [ref=e244]: 完成任务
+                - generic [ref=e245]:
+                  - img [ref=e247]
+                  - generic [ref=e249]: "4"
+                  - generic [ref=e250]: 今日部署
+                - generic [ref=e251]:
+                  - img [ref=e253]
+                  - generic [ref=e255]: "88"
+                  - generic [ref=e256]: 代码质量
+              - generic [ref=e257]:
+                - heading "快速操作" [level=4] [ref=e258]
+                - generic [ref=e259]:
+                  - button "生成代码" [ref=e260] [cursor=pointer]:
+                    - img [ref=e262]
+                    - generic [ref=e265]: 生成代码
+                  - button "创建分支" [ref=e266] [cursor=pointer]:
+                    - img [ref=e268]
+                    - generic [ref=e272]: 创建分支
+                  - button "数据备份" [ref=e273] [cursor=pointer]:
+                    - img [ref=e275]
+                    - generic [ref=e279]: 数据备份
+    - region "Notifications (F8)":
+      - list
+  - button "Open Next.js Dev Tools" [ref=e285] [cursor=pointer]:
+    - img [ref=e286]
+  - alert [ref=e289]
+```

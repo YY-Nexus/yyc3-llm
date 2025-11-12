@@ -1,0 +1,521 @@
+app/api/code-analysis/route.ts(42,36): error TS6133: 'language' is declared but its value is never read.
+app/api/code-analysis/route.ts(166,29): error TS6133: 'options' is declared but its value is never read.
+app/api/code-optimization/route.ts(244,7): error TS6133: 'preserveComments' is declared but its value is never read.
+app/api/code-review/route.ts(40,75): error TS6133: 'author' is declared but its value is never read.
+app/api/code-review/route.ts(233,36): error TS6133: 'description' is declared but its value is never read.
+app/mobile/integrated-development/page.tsx(54,17): error TS6133: 'setStats' is declared but its value is never read.
+app/mobile/integrated-development/page.tsx(63,9): error TS6133: 'toast' is declared but its value is never read.
+app/mobile/integrated-development/page.tsx(402,29): error TS6133: 'onBack' is declared but its value is never read.
+app/model-engine/page.tsx(7,102): error TS6133: 'Zap' is declared but its value is never read.
+app/model-engine/page.tsx(7,122): error TS6133: 'Lock' is declared but its value is never read.
+app/model-engine/page.tsx(7,128): error TS6133: 'Unlock' is declared but its value is never read.
+app/model-engine/page.tsx(11,1): error TS6192: All imports in import declaration are unused.
+app/model-engine/page.tsx(41,10): error TS6133: 'selectedModel' is declared but its value is never read.
+app/model-engine/page.tsx(41,25): error TS6133: 'setSelectedModel' is declared but its value is never read.
+app/modules/ai-code-generation-with-preview/page.tsx(1,1): error TS6133: 'AICodeGenerationWithPreview' is declared but its value is never read.
+app/page.tsx(18,1): error TS6133: 'CodePreview' is declared but its value is never read.
+app/page.tsx(19,1): error TS6133: 'ModelSelector' is declared but its value is never read.
+app/page.tsx(84,10): error TS6133: 'code' is declared but its value is never read.
+app/page.tsx(85,17): error TS6133: 'setModel' is declared but its value is never read.
+app/page.tsx(86,18): error TS6133: 'setParams' is declared but its value is never read.
+app/page.tsx(87,10): error TS6133: 'localModels' is declared but its value is never read.
+app/page.tsx(87,23): error TS6133: 'setLocalModels' is declared but its value is never read.
+app/page.tsx(130,9): error TS6133: 'handleSend' is declared but its value is never read.
+app/theme-demo/page.tsx(89,19): error TS6133: 'value' is declared but its value is never read.
+app/theme-demo/page.tsx(89,26): error TS6133: 'onValueChange' is declared but its value is never read.
+app/theme-demo/page.tsx(117,23): error TS6133: 'value' is declared but its value is never read.
+app/theme-demo/page.tsx(158,17): error TS6133: 'setValue' is declared but its value is never read.
+app/theme-demo/page.tsx(183,24): error TS6133: 'value' is declared but its value is never read.
+app/theme-demo/page.tsx(183,41): error TS6133: 'className' is declared but its value is never read.
+app/theme-demo/page.tsx(193,24): error TS6133: 'value' is declared but its value is never read.
+components/ai/ai-enhanced-editor.tsx(46,27): error TS6133: 'setShowSuggestions' is declared but its value is never read.
+components/ai/enhanced-model-dashboard.tsx(66,10): error TS6133: 'downloads' is declared but its value is never read.
+components/ai/enhanced-model-dashboard.tsx(77,10): error TS6133: 'selectedModel' is declared but its value is never read.
+components/ai/model-benchmark.tsx(130,19): error TS6133: 'startTime' is declared but its value is never read.
+components/ai/ModelEngineDashboardPanel.tsx(4,10): error TS6133: 'Zap' is declared but its value is never read.
+components/analysis/enhanced-code-review-panel.tsx(3,27): error TS6133: 'useEffect' is declared but its value is never read.
+components/analysis/enhanced-code-review-panel.tsx(22,3): error TS6133: 'FileText' is declared but its value is never read.
+components/analysis/enhanced-code-review-panel.tsx(23,3): error TS6133: 'Users' is declared but its value is never read.
+components/analysis/enhanced-code-review-panel.tsx(28,3): error TS6133: 'ThumbsDown' is declared but its value is never read.
+components/analysis/enhanced-code-review-panel.tsx(91,10): error TS6133: 'selectedComment' is declared but its value is never read.
+components/analysis/intelligent-code-analysis.tsx(3,27): error TS6133: 'useEffect' is declared but its value is never read.
+components/analysis/intelligent-code-analysis.tsx(18,3): error TS6133: 'Clock' is declared but its value is never read.
+components/analysis/intelligent-code-analysis.tsx(21,3): error TS6133: 'Network' is declared but its value is never read.
+components/auth/auth-provider.tsx(78,56): error TS6133: 'password' is declared but its value is never read.
+components/data-intelligence/data-platform-dashboard.tsx(93,42): error TS6133: 'm' is declared but its value is never read.
+components/deployment/automated-deployment-manager.tsx(14,3): error TS6133: 'Monitor' is declared but its value is never read.
+components/deployment/automated-deployment-manager.tsx(20,3): error TS6133: 'Play' is declared but its value is never read.
+components/deployment/automated-deployment-manager.tsx(21,3): error TS6133: 'RotateCcw' is declared but its value is never read.
+components/deployment/deployment-manager.tsx(483,38): error TS6133: 'value' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(21,3): error TS6133: 'Pause' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(22,3): error TS6133: 'Play' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(25,3): error TS6133: 'Cloud' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(27,3): error TS6133: 'Database' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(28,3): error TS6133: 'Shield' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(32,3): error TS6133: 'Users' is declared but its value is never read.
+components/deployment/enhanced-deployment-manager.tsx(85,10): error TS6133: 'loading' is declared but its value is never read.
+components/mobile/mobile-ai-code-generator.tsx(37,47): error TS6133: 'onBack' is declared but its value is never read.
+components/mobile/mobile-code-sandbox.tsx(52,43): error TS6133: 'onBack' is declared but its value is never read.
+components/mobile/mobile-collaborative-editor.tsx(49,51): error TS6133: 'onBack' is declared but its value is never read.
+components/mobile/mobile-project-manager.tsx(51,46): error TS6133: 'onBack' is declared but its value is never read.
+components/mobile/mobile-project-manager.tsx(158,23): error TS6133: 'projectId' is declared but its value is never read.
+components/modules/app-development.tsx(12,3): error TS6133: 'Smartphone' is declared but its value is never read.
+components/modules/app-development.tsx(15,3): error TS6133: 'Play' is declared but its value is never read.
+components/modules/app-development.tsx(16,3): error TS6133: 'Settings' is declared but its value is never read.
+components/modules/automation-production.tsx(9,3): error TS6133: 'Square' is declared but its value is never read.
+components/modules/automation-production.tsx(14,3): error TS6133: 'AlertTriangle' is declared but its value is never read.
+components/modules/automation-production.tsx(19,3): error TS6133: 'Globe' is declared but its value is never read.
+components/modules/deployment-management.tsx(8,3): error TS6133: 'Globe' is declared but its value is never read.
+components/modules/deployment-management.tsx(9,3): error TS6133: 'Shield' is declared but its value is never read.
+components/modules/deployment-management.tsx(21,3): error TS6133: 'Cloud' is declared but its value is never read.
+components/modules/file-review.tsx(12,3): error TS6133: 'Eye' is declared but its value is never read.
+components/modules/file-review.tsx(13,3): error TS6133: 'Download' is declared but its value is never read.
+components/modules/file-review.tsx(57,66): error TS6133: 'index' is declared but its value is never read.
+components/modules/integrated-code-preview.tsx(4,1): error TS6192: All imports in import declaration are unused.
+components/modules/integrated-code-preview.tsx(6,1): error TS6133: 'Button' is declared but its value is never read.
+components/modules/real-time-preview.tsx(270,60): error TS6133: 'color' is declared but its value is never read.
+components/modules/real-time-preview.tsx(512,3): error TS6133: 'language' is declared but its value is never read.
+components/modules/score-analysis.tsx(14,3): error TS6133: 'Calendar' is declared but its value is never read.
+components/modules/score-analysis.tsx(15,3): error TS6133: 'Filter' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(12,267): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,30): error TS6133: 'Save' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,36): error TS6133: 'X' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,78): error TS6133: 'Users' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,95): error TS6133: 'AlertCircle' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,108): error TS6133: 'Shield' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,116): error TS6133: 'Info' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,122): error TS6133: 'Zap' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,142): error TS6133: 'ChevronRight' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(13,156): error TS6133: 'HelpCircle' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(14,161): error TS6133: 'AlertDialogTrigger' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(15,43): error TS6133: 'TooltipContent' is declared but its value is never read.
+components/monitoring/configuration/AlertConfiguration.tsx(16,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/configuration/AlertConfiguration.tsx(17,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(12,267): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(12,278): error TS6133: 'Tooltip' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(12,294): error TS2724: '"@/components/ui/"' has no exported member named 'AlertDescription'. Did you mean 'CardDescription'?
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(12,312): error TS2305: Module '"@/components/ui/"' has no exported member 'AlertTitle'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,30): error TS6133: 'Save' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,36): error TS6133: 'X' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,72): error TS6133: 'Shield' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,85): error TS6133: 'Play' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,91): error TS6133: 'Pause' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,98): error TS6133: 'Code' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,104): error TS6133: 'Database' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,114): error TS6133: 'Server' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,122): error TS6133: 'Settings' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,142): error TS6133: 'Layers' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(13,150): error TS6133: 'Repeat' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(14,10): error TS6133: 'faultRecoveryService' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(15,161): error TS6133: 'AlertDialogTrigger' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(17,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(282,10): error TS6133: 'selectedPolicyId' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(559,9): error TS6133: 'formatTime' is declared but its value is never read.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(803,17): error TS2322: Type 'string | number | true' is not assignable to type 'string | number | readonly string[] | undefined'.
+  Type 'true' is not assignable to type 'string | number | readonly string[] | undefined'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(907,17): error TS2322: Type 'string | number | true' is not assignable to type 'string | number | readonly string[] | undefined'.
+  Type 'true' is not assignable to type 'string | number | readonly string[] | undefined'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(1129,55): error TS2353: Object literal may only specify known properties, and 'serviceName' does not exist in type 'ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>'.
+components/monitoring/configuration/FaultRecoveryConfiguration.tsx(1129,55): error TS18004: No value exists in scope for the shorthand property 'serviceName'. Either declare one or provide an initializer.
+components/monitoring/configuration/SLAMonitoring.tsx(12,267): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(12,298): error TS2305: Module '"@/components/ui/"' has no exported member 'RadioGroup'.
+components/monitoring/configuration/SLAMonitoring.tsx(12,310): error TS2305: Module '"@/components/ui/"' has no exported member 'RadioGroupItem'.
+components/monitoring/configuration/SLAMonitoring.tsx(12,326): error TS2305: Module '"@/components/ui/"' has no exported member 'Label'.
+components/monitoring/configuration/SLAMonitoring.tsx(12,333): error TS2305: Module '"@/components/ui/"' has no exported member 'Slider'.
+components/monitoring/configuration/SLAMonitoring.tsx(12,333): error TS6133: 'Slider' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(13,30): error TS6133: 'Save' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(13,36): error TS6133: 'X' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(13,96): error TS6133: 'ChevronRight' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(13,110): error TS6133: 'HelpCircle' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(14,161): error TS6133: 'AlertDialogTrigger' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(16,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/configuration/SLAMonitoring.tsx(17,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/configuration/SLAMonitoring.tsx(159,9): error TS2322: Type '"hourly"' is not assignable to type '"daily" | "weekly" | "monthly" | "quarterly" | "annually"'.
+components/monitoring/configuration/SLAMonitoring.tsx(198,33): error TS6133: 'setSlaPerformanceHistory' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(250,34): error TS6133: 'setAutoRemediationActions' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(578,9): error TS6133: 'getNotificationChannelLabel' is declared but its value is never read.
+components/monitoring/configuration/SLAMonitoring.tsx(848,30): error TS2322: Type '(entry: any) => "#ef4444" | "#10b981"' is not assignable to type 'string'.
+components/monitoring/configuration/SLAMonitoring.tsx(848,32): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+components/monitoring/configuration/SLAMonitoring.tsx(1088,29): error TS2322: Type '{ services: string[]; environments?: string[] | undefined; endpoints?: string[]; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'environments' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/configuration/SLAMonitoring.tsx(1134,29): error TS2322: Type '{ environments: string[]; services?: string[] | undefined; endpoints?: string[]; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'services' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/configuration/SLAMonitoring.tsx(1163,23): error TS2322: Type '{ endpoints: string[]; services?: string[] | undefined; environments?: string[] | undefined; }' is not assignable to type '{ services: string[]; environments: string[]; endpoints?: string[] | undefined; }'.
+  Types of property 'services' are incompatible.
+    Type 'string[] | undefined' is not assignable to type 'string[]'.
+      Type 'undefined' is not assignable to type 'string[]'.
+components/monitoring/configuration/SLAMonitoring.tsx(1245,33): error TS7006: Parameter 'value' implicitly has an 'any' type.
+components/monitoring/dashboard/MonitoringDashboard.tsx(12,136): error TS6133: 'Avatar' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(14,10): error TS6133: 'Heart' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(14,49): error TS6133: 'Zap' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(14,54): error TS6133: 'CheckCircle' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(15,10): error TS6133: 'monitoringIntegrationService' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(16,1): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(17,21): error TS6133: 'UITooltip' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(108,9): error TS6133: 'getProgressColor' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(323,9): error TS6133: 'COLORS' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(370,53): error TS18046: 'percent' is of type 'unknown'.
+components/monitoring/dashboard/MonitoringDashboard.tsx(373,26): error TS6133: 'entry' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(387,24): error TS6133: 'setSystemStatus' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(395,22): error TS6133: 'setSlaMetrics' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(446,26): error TS6133: 'setRecoveryEvents' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(480,18): error TS6133: 'setAlerts' is declared but its value is never read.
+components/monitoring/dashboard/MonitoringDashboard.tsx(523,33): error TS7030: Not all code paths return a value.
+components/monitoring/remediation/AutoRemediation.tsx(12,267): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(12,278): error TS6133: 'Checkbox' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(12,288): error TS2305: Module '"@/components/ui/"' has no exported member 'Label'.
+components/monitoring/remediation/AutoRemediation.tsx(12,288): error TS6133: 'Label' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(12,295): error TS2305: Module '"@/components/ui/"' has no exported member 'Textarea'.
+components/monitoring/remediation/AutoRemediation.tsx(13,30): error TS6133: 'Save' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(13,36): error TS6133: 'X' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(13,84): error TS6133: 'PauseCircle' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(13,145): error TS6133: 'ChevronRight' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(13,159): error TS6133: 'HelpCircle' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(14,161): error TS6133: 'AlertDialogTrigger' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(15,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/remediation/AutoRemediation.tsx(16,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/remediation/AutoRemediation.tsx(17,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/remediation/AutoRemediation.tsx(18,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/remediation/AutoRemediation.tsx(179,28): error TS6133: 'setExecutionHistory' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(255,20): error TS6133: 'setServices' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(493,9): error TS6133: 'getServiceInfo' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(784,21): error TS6133: 'serviceActions' is declared but its value is never read.
+components/monitoring/remediation/AutoRemediation.tsx(875,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/monitoring/remediation/AutoRemediation.tsx(1268,32): error TS7006: Parameter 'e' implicitly has an 'any' type.
+components/monitoring/sla/SLAMonitor.tsx(12,77): error TS6133: 'Tabs' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,83): error TS6133: 'TabsContent' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,96): error TS6133: 'TabsList' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,106): error TS6133: 'TabsTrigger' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,182): error TS6133: 'Input' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,189): error TS6133: 'Select' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,197): error TS6133: 'SelectContent' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,212): error TS6133: 'SelectItem' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,224): error TS6133: 'SelectTrigger' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,239): error TS6133: 'SelectValue' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,267): error TS6133: 'Separator' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,278): error TS6133: 'Checkbox' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,288): error TS2305: Module '"@/components/ui/"' has no exported member 'Label'.
+components/monitoring/sla/SLAMonitor.tsx(12,288): error TS6133: 'Label' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,295): error TS2305: Module '"@/components/ui/"' has no exported member 'Textarea'.
+components/monitoring/sla/SLAMonitor.tsx(12,295): error TS6133: 'Textarea' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,305): error TS2305: Module '"@/components/ui/"' has no exported member 'BarChart'.
+components/monitoring/sla/SLAMonitor.tsx(12,317): error TS6133: 'LucideBarChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,333): error TS2305: Module '"@/components/ui/"' has no exported member 'PieChart'.
+components/monitoring/sla/SLAMonitor.tsx(12,345): error TS6133: 'LucidePieChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(12,361): error TS2305: Module '"@/components/ui/"' has no exported member 'LineChart'.
+components/monitoring/sla/SLAMonitor.tsx(12,374): error TS6133: 'LucideLineChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,10): error TS6133: 'AlertCircle' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,37): error TS6133: 'XCircle' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,46): error TS6133: 'Clock' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,53): error TS6133: 'AlertTriangle' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,94): error TS6133: 'Info' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,120): error TS6133: 'Calendar' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,130): error TS6133: 'Filter' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,149): error TS6133: 'Download' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,159): error TS6133: 'ChevronDown' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,172): error TS6133: 'ChevronUp' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,188): error TS6133: 'Settings' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,198): error TS6133: 'BellRing' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,208): error TS6133: 'ThumbsUp' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,218): error TS6133: 'ThumbsDown' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,238): error TS2305: Module '"lucide-react"' has no exported member 'AlertSquare'.
+components/monitoring/sla/SLAMonitor.tsx(13,238): error TS6133: 'AlertSquare' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(13,251): error TS6133: 'Zap' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(14,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/sla/SLAMonitor.tsx(15,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/sla/SLAMonitor.tsx(16,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/sla/SLAMonitor.tsx(17,10): error TS6133: 'BarChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,20): error TS6133: 'Bar' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,116): error TS6133: 'RechartsLineChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,170): error TS6133: 'RadarChart' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,182): error TS6133: 'Radar' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,189): error TS6133: 'PolarGrid' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,200): error TS6133: 'PolarAngleAxis' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(17,216): error TS6133: 'PolarRadiusAxis' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(18,1): error TS6192: All imports in import declaration are unused.
+components/monitoring/sla/SLAMonitor.tsx(93,7): error TS6133: 'SLAMonitor' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(184,25): error TS6133: 'setSlaViolations' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(288,20): error TS6133: 'setServices' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(311,21): error TS6133: 'setTimeRange' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(312,10): error TS6133: 'activeTab' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(314,10): error TS6133: 'showEditForm' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(316,10): error TS6133: 'isSaving' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(317,10): error TS6133: 'saveSuccess' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(318,10): error TS6133: 'showConfirmDialog' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(323,10): error TS6133: 'performanceData' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(471,9): error TS2322: Type 'string' is not assignable to type '"warning" | "normal" | "violation"'.
+components/monitoring/sla/SLAMonitor.tsx(478,39): error TS2552: Cannot find name 'target'. Did you mean 'Target'?
+components/monitoring/sla/SLAMonitor.tsx(550,7): error TS2322: Type 'string' is not assignable to type '"warning" | "normal" | "violation"'.
+components/monitoring/sla/SLAMonitor.tsx(629,9): error TS6133: 'handleSaveSlaTarget' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(697,9): error TS6133: 'handleDeleteSlaTarget' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(748,9): error TS6133: 'handleCancelEdit' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(768,9): error TS6133: 'renderOverview' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(897,64): error TS18046: 'percent' is of type 'unknown'.
+components/monitoring/sla/SLAMonitor.tsx(921,18): error TS2552: Cannot find name 'LineChart'. Did you mean 'PieChart'?
+components/monitoring/sla/SLAMonitor.tsx(934,19): error TS2552: Cannot find name 'LineChart'. Did you mean 'PieChart'?
+components/monitoring/sla/SLAMonitor.tsx(1066,9): error TS6133: 'renderSlaTargetsList' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(1196,9): error TS6133: 'renderViolationsList' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(1304,9): error TS6133: 'renderSlaDetails' is declared but its value is never read.
+components/monitoring/sla/SLAMonitor.tsx(1461,30): error TS2304: Cannot find name 'handleRefresh'.
+components/monitoring/sla/SLAMonitor.tsx(1465,72): error TS2304: Cannot find name 'setShowCreateModal'.
+components/monitoring/sla/SLAMonitor.tsx(1474,12): error TS2552: Cannot find name 'renderOverviewCards'. Did you mean 'renderOverview'?
+components/monitoring/sla/SLAMonitor.tsx(1479,12): error TS2304: Cannot find name 'renderCharts'.
+components/monitoring/sla/SLAMonitor.tsx(1483,10): error TS2304: Cannot find name 'renderServiceTable'.
+components/monitoring/sla/SLAMonitor.tsx(1486,31): error TS2552: Cannot find name 'renderSlaTargetDetails'. Did you mean 'renderSlaDetails'?
+components/preview/collaborative-editor.tsx(68,25): error TS6133: 'setCollaborators' is declared but its value is never read.
+components/preview/collaborative-editor.tsx(160,26): error TS6133: 'setVersionHistory' is declared but its value is never read.
+components/preview/enhanced-code-sandbox.tsx(133,10): error TS6133: 'language' is declared but its value is never read.
+components/preview/enhanced-code-sandbox.tsx(133,20): error TS6133: 'setLanguage' is declared but its value is never read.
+components/preview/project-integration-panel.tsx(41,51): error TS6133: 'projectId' is declared but its value is never read.
+components/preview/project-integration-panel.tsx(42,9): error TS6198: All destructured elements are unused.
+components/preview/project-integration-panel.tsx(178,9): error TS6133: 'selectedIntegrationData' is declared but its value is never read.
+components/preview/template-system-integration.tsx(30,105): error TS6133: 'updateTemplate' is declared but its value is never read.
+components/preview/template-system-integration.tsx(30,124): error TS6133: 'deleteTemplate' is declared but its value is never read.
+components/project/project-manager.tsx(29,5): error TS6133: 'currentProject' is declared but its value is never read.
+components/project/project-manager.tsx(78,9): error TS6133: 'getProjectIcon' is declared but its value is never read.
+components/templates/template-form.tsx(19,29): error TS6196: 'TemplateCategory' is declared but never used.
+components/ui/markdown-preview.tsx(28,57): error TS6133: 'match' is declared but its value is never read.
+components/ui/markdown-preview.tsx(28,64): error TS6133: 'lang' is declared but its value is never read.
+components/ui/monaco-editor.tsx(81,42): error TS7030: Not all code paths return a value.
+components/ui/monaco-editor.tsx(97,37): error TS6133: 'moduleId' is declared but its value is never read.
+components/ui/monaco-editor.tsx(97,55): error TS6133: 'label' is declared but its value is never read.
+components/ui/versioning.ts(116,32): error TS6133: 'componentName' is declared but its value is never read.
+lib/ai-service.ts(6,11): error TS6133: 'apiKey' is declared but its value is never read.
+lib/ai-service.ts(7,11): error TS6133: 'baseUrl' is declared but its value is never read.
+lib/ai-service.ts(30,5): error TS6133: 'code' is declared but its value is never read.
+lib/ai-service.ts(31,5): error TS6133: 'language' is declared but its value is never read.
+lib/ai-service.ts(33,5): error TS6133: 'context' is declared but its value is never read.
+lib/ai-service.ts(87,35): error TS6133: 'code' is declared but its value is never read.
+lib/ai-service.ts(87,49): error TS6133: 'language' is declared but its value is never read.
+lib/ai-service.ts(87,67): error TS6133: 'context' is declared but its value is never read.
+lib/ai-service.ts(144,35): error TS6133: 'code' is declared but its value is never read.
+lib/ai-service.ts(144,49): error TS6133: 'language' is declared but its value is never read.
+lib/ai-service.ts(209,5): error TS6133: 'context' is declared but its value is never read.
+lib/ai-service.ts(269,35): error TS6133: 'code' is declared but its value is never read.
+lib/ai-service.ts(269,49): error TS6133: 'language' is declared but its value is never read.
+lib/ai-service.ts(269,67): error TS6133: 'errors' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(237,13): error TS6133: 'mergedOptions' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(461,5): error TS6133: 'modelId' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(489,5): error TS6133: 'audioBlob' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(490,5): error TS6133: 'task' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(491,5): error TS6133: 'modelId' is declared but its value is never read.
+lib/ai/multimodal-ai-service.ts(612,13): error TS6133: 'mergedOptions' is declared but its value is never read.
+lib/ai/predictive-maintenance.ts(540,90): error TS6133: 'maxValue' is declared but its value is never read.
+lib/code/code-sandbox.ts(144,42): error TS6133: 'options' is declared but its value is never read.
+lib/data/data-lake.ts(212,11): error TS6133: 'view' is declared but its value is never read.
+lib/data/data-lake.ts(464,28): error TS6133: 'tableName' is declared but its value is never read.
+lib/data/data-lake.ts(505,41): error TS6133: 'whereClause' is declared but its value is never read.
+lib/data/stream-processor.ts(197,41): error TS6133: 'timeoutMs' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(11,11): error TS6133: 'vpcClient' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(344,11): error TS6133: 'serviceName' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(350,27): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(394,22): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(402,23): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(406,22): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(410,29): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/aliyun-service-manager.ts(464,31): error TS6133: 'params' is declared but its value is never read.
+lib/enterprise/enterprise-support-service.ts(272,69): error TS6133: 'agentId' is declared but its value is never read.
+lib/enterprise/local-server-manager.ts(7,11): error TS6133: 'services' is declared but its value is never read.
+lib/enterprise/local-server-manager.ts(249,15): error TS6133: 'response' is declared but its value is never read.
+lib/enterprise/local-server-manager.ts(265,38): error TS6133: 'server' is declared but its value is never read.
+lib/middleware/jwt-refresh.middleware.ts(1,26): error TS6133: 'Middleware' is declared but its value is never read.
+lib/monitoring/fault-recovery-service.ts(111,11): error TS6133: 'recoveryTimeout' is declared but its value is never read.
+lib/monitoring/fault-recovery-service.ts(114,11): error TS6133: 'retryDelay' is declared but its value is never read.
+lib/monitoring/fault-recovery-service.ts(712,30): error TS6133: 'fault' is declared but its value is never read.
+lib/monitoring/index.ts(25,3): error TS2614: Module '"./sla-monitoring-service"' has no exported member 'SLAComplianceReport'. Did you mean to use 'import SLAComplianceReport from "./sla-monitoring-service"' instead?
+lib/monitoring/index.ts(26,3): error TS2614: Module '"./sla-monitoring-service"' has no exported member 'SLAMonitoringConfig'. Did you mean to use 'import SLAMonitoringConfig from "./sla-monitoring-service"' instead?
+lib/monitoring/index.ts(38,3): error TS2614: Module '"./fault-recovery-service"' has no exported member 'RecoveryContext'. Did you mean to use 'import RecoveryContext from "./fault-recovery-service"' instead?
+lib/monitoring/index.ts(39,3): error TS2724: '"./fault-recovery-service"' has no exported member named 'RecoveryOptions'. Did you mean 'RecoveryAction'?
+lib/monitoring/index.ts(47,3): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'AnomalySeverity'. Did you mean to use 'import AnomalySeverity from "../ai/predictive-maintenance"' instead?
+lib/monitoring/index.ts(48,3): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'HealthScoreResult'. Did you mean to use 'import HealthScoreResult from "../ai/predictive-maintenance"' instead?
+lib/monitoring/index.ts(53,3): error TS18004: No value exists in scope for the shorthand property 'monitoringIntegrationService'. Either declare one or provide an initializer.
+lib/monitoring/index.ts(54,3): error TS18004: No value exists in scope for the shorthand property 'slaMonitoringService'. Either declare one or provide an initializer.
+lib/monitoring/index.ts(55,3): error TS18004: No value exists in scope for the shorthand property 'faultRecoveryService'. Either declare one or provide an initializer.
+lib/monitoring/monitoring-integration-service.ts(17,15): error TS6196: 'MetricDefinition' is declared but never used.
+lib/monitoring/monitoring-integration-service.ts(17,42): error TS2614: Module '"../ai/predictive-maintenance"' has no exported member 'HealthScoreResult'. Did you mean to use 'import HealthScoreResult from "../ai/predictive-maintenance"' instead?
+lib/monitoring/monitoring-integration-service.ts(223,53): error TS2339: Property 'getStatus' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(225,54): error TS2554: Expected 0 arguments, but got 1.
+lib/monitoring/monitoring-integration-service.ts(231,36): error TS2339: Property 'initialize' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(512,51): error TS2339: Property 'getStatus' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(517,48): error TS2339: Property 'getComplianceRate' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(529,41): error TS2339: Property 'getLastCheckTime' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(531,39): error TS2339: Property 'getMetrics' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(532,39): error TS2551: Property 'getSLATargets' does not exist on type 'SLAMonitoringService'. Did you mean 'getSLATarget'?
+lib/monitoring/monitoring-integration-service.ts(573,58): error TS2339: Property 'getPreviousHealthScore' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(584,47): error TS2339: Property 'getMetrics' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(585,50): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(586,50): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(587,52): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(588,46): error TS2339: Property 'getRecentEvents' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(591,41): error TS7006: Parameter 'e' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(592,41): error TS7006: Parameter 'e' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(625,52): error TS2339: Property 'getMetrics' does not exist on type 'PredictiveMaintenanceService'.
+lib/monitoring/monitoring-integration-service.ts(626,38): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(627,41): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(628,39): error TS7006: Parameter 'm' implicitly has an 'any' type.
+lib/monitoring/monitoring-integration-service.ts(635,39): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(636,35): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(637,37): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(638,34): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(641,48): error TS2339: Property 'getComplianceRate' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(699,28): error TS2339: Property 'updateCheckInterval' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(723,32): error TS2339: Property 'addSLATarget' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(753,52): error TS2339: Property 'generateReport' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/monitoring-integration-service.ts(804,32): error TS6133: 'timeRange' is declared but its value is never read.
+lib/monitoring/monitoring-integration-service.ts(813,36): error TS2339: Property 'categoryScores' does not exist on type 'HealthScore'.
+lib/monitoring/monitoring-integration-service.ts(846,28): error TS2339: Property 'stop' does not exist on type 'SLAMonitoringService'.
+lib/monitoring/sla-monitoring-service.ts(129,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(139,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(149,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(159,9): error TS2322: Type '"sla"' is not assignable to type '"application" | "database" | "system" | "ai" | "network"'.
+lib/monitoring/sla-monitoring-service.ts(168,36): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(169,36): error TS2341: Property 'dataPoints' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(170,36): error TS2341: Property 'anomalies' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(194,28): error TS7006: Parameter 'anomaly' implicitly has an 'any' type.
+lib/monitoring/sla-monitoring-service.ts(195,49): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(220,49): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(288,51): error TS2341: Property 'metrics' is private and only accessible within class 'PredictiveMaintenanceService'.
+lib/monitoring/sla-monitoring-service.ts(333,37): error TS6133: 'priority' is declared but its value is never read.
+lib/project-store.ts(495,31): error TS6133: 'projectId' is declared but its value is never read.
+lib/project-store.ts(495,42): error TS6133: 'version1' is declared but its value is never read.
+lib/project-store.ts(495,52): error TS6133: 'version2' is declared but its value is never read.
+lib/project-store.ts(570,28): error TS6133: 'projectId' is declared but its value is never read.
+src/accessibility/enhanced-accessibility.tsx(8,9): error TS6133: 'focusedElement' is declared but its value is never read.
+src/core/cloud/providers/AWSProvider.ts(68,40): error TS6133: 'options' is declared but its value is never read.
+src/core/cloud/providers/AWSProvider.ts(88,19): error TS6133: 'directory' is declared but its value is never read.
+src/core/cloud/providers/AWSProvider.ts(88,39): error TS6133: 'options' is declared but its value is never read.
+src/core/cloud/providers/AWSProvider.ts(111,38): error TS6133: 'options' is declared but its value is never read.
+src/core/cube/implementations/AdvancedWorkflowEngine.ts(9,3): error TS6133: 'YYC3ErrorHandling' is declared but its value is never read.
+src/core/cube/implementations/AdvancedWorkflowEngine.ts(277,40): error TS6133: 'step' is declared but its value is never read.
+src/core/cube/implementations/AdvancedWorkflowEngine.ts(277,76): error TS6133: 'context' is declared but its value is never read.
+src/core/cube/implementations/AdvancedWorkflowEngine.ts(290,69): error TS6133: 'context' is declared but its value is never read.
+src/core/cube/implementations/AdvancedWorkflowEngine.ts(347,5): error TS6133: 'strategy' is declared but its value is never read.
+src/core/cube/implementations/YYC3CubeManagerImpl.ts(4,1): error TS6133: 'YYC3Response' is declared but its value is never read.
+src/core/cube/interfaces/YYC3Workflow.ts(1,1): error TS6133: 'YYC3Response' is declared but its value is never read.
+src/core/cube/module-manager/YYC3ModuleRegistry.ts(169,17): error TS6133: 'dynamicImport' is declared but its value is never read.
+src/core/module-system.tsx(4,27): error TS6133: 'lazy' is declared but its value is never read.
+src/core/module-system.tsx(51,11): error TS6133: 'brandId' is declared but its value is never read.
+src/core/module-system.tsx(274,11): error TS6133: 'brandId' is declared but its value is never read.
+src/core/module-system.tsx(347,13): error TS6133: 'config' is declared but its value is never read.
+src/core/module-system.tsx(415,11): error TS6133: 'registry' is declared but its value is never read.
+src/core/utils/nationalStandards.ts(27,25): error TS6133: 'key' is declared but its value is never read.
+src/core/utils/nationalStandards.ts(33,34): error TS6133: 'key' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(10,3): error TS6133: 'YYC3Concept' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(11,3): error TS6133: 'YYC3Relation' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(145,5): error TS6133: 'input' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(149,5): error TS6133: 'metadata' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(285,11): error TS6133: 'language' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(442,11): error TS6133: 'detectLanguage' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(525,11): error TS6133: 'analyzeSyntax' is declared but its value is never read.
+src/core/yu/implementations/NLPAnalyzer.ts(552,11): error TS6133: 'extractKeyPhrases' is declared but its value is never read.
+src/core/yu/interfaces/implementations/AdaptiveNLPAnalyzer.ts(2,37): error TS6133: 'YYC3Entity' is declared but its value is never read.
+src/core/yu/interfaces/implementations/AdaptiveNLPAnalyzer.ts(2,49): error TS6133: 'YYC3Sentiment' is declared but its value is never read.
+src/core/yu/interfaces/implementations/AdaptiveNLPAnalyzer.ts(2,64): error TS6133: 'YYC3Intent' is declared but its value is never read.
+src/core/yu/interfaces/implementations/AdaptiveNLPAnalyzer.ts(2,76): error TS6133: 'YYC3ConfidenceScores' is declared but its value is never read.
+src/core/yu/interfaces/implementations/AdaptiveNLPAnalyzer.ts(3,1): error TS6133: 'YYC3Response' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(1,27): error TS6133: 'useEffect' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(10,7): error TS6198: All destructured elements are unused.
+src/education/AdvancedFeatures.tsx(11,21): error TS6133: 'setUserStats' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(27,23): error TS6133: 'setLeaderboard' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(35,23): error TS6133: 'setDailyQuests' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(41,27): error TS6133: 'setWeeklyChallenge' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(245,7): error TS6198: All destructured elements are unused.
+src/education/AdvancedFeatures.tsx(246,27): error TS6133: 'setRecommendations' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(279,10): error TS6133: 'preferences' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(279,23): error TS6133: 'setPreferences' is declared but its value is never read.
+src/education/AdvancedFeatures.tsx(382,9): error TS6133: 'translations' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(12,10): error TS6133: 'suggestions' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(12,23): error TS6133: 'setSuggestions' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(44,33): error TS6133: 'code' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(115,9): error TS6133: 'roomId' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(115,25): error TS6133: 'userRole' is declared but its value is never read.
+src/education/AdvancedIntegration.tsx(192,7): error TS6198: All destructured elements are unused.
+src/education/AdvancedIntegration.tsx(193,24): error TS6133: 'setProgressData' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(28,9): error TS6133: 'generateKnowledgePoints' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(109,82): error TS6133: 'level' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(228,82): error TS6133: 'level' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(233,9): error TS6133: 'addNode' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(233,20): error TS6133: 'parentId' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(297,76): error TS6133: 'level' is declared but its value is never read.
+src/education/KnowledgeExplorer.tsx(408,72): error TS6198: All destructured elements are unused.
+src/education/StudentTeacherFeatures.tsx(132,7): error TS6198: All destructured elements are unused.
+src/education/StudentTeacherFeatures.tsx(133,21): error TS6133: 'setClassData' is declared but its value is never read.
+src/education/SubjectManager.tsx(1,27): error TS6133: 'useCallback' is declared but its value is never read.
+src/education/TutorialSystem.tsx(261,9): error TS6133: 'userId' is declared but its value is never read.
+src/education/TutorialSystem.tsx(262,20): error TS6133: 'setProjects' is declared but its value is never read.
+src/emotion-platform/EmotionCapture.tsx(3,27): error TS6133: 'useEffect' is declared but its value is never read.
+src/emotion-platform/EmotionCapture.tsx(28,3): error TS6133: 'enableText' is declared but its value is never read.
+src/emotion-platform/EmotionFeedback.tsx(4,53): error TS6133: 'Settings' is declared but its value is never read.
+src/emotion-platform/EmotionFeedback.tsx(130,46): error TS6133: 'intensity' is declared but its value is never read.
+src/emotion-platform/EmotionPlatform.tsx(8,29): error TS6133: 'TabsList' is declared but its value is never read.
+src/emotion-platform/EmotionPlatform.tsx(32,25): error TS6133: 'setPlatformStats' is declared but its value is never read.
+src/emotion-platform/NaturalDialog.tsx(4,30): error TS6133: 'Volume2' is declared but its value is never read.
+src/emotion-platform/NaturalDialog.tsx(75,31): error TS6133: 'userMessage' is declared but its value is never read.
+src/emotion-platform/PersonalityEngine.tsx(7,16): error TS6133: 'Award' is declared but its value is never read.
+src/emotion-platform/PersonalityEngine.tsx(7,23): error TS6133: 'Brain' is declared but its value is never read.
+src/emotion-platform/PersonalityEngine.tsx(7,30): error TS6133: 'Sparkles' is declared but its value is never read.
+src/emotion-platform/PersonalityEngine.tsx(33,27): error TS6133: 'setUserPersonality' is declared but its value is never read.
+src/emotion-platform/PersonalityEngine.tsx(58,28): error TS6133: 'setPersonalityScore' is declared but its value is never read.
+src/industries/finance/modules/FinancialNewsAnalyzer.ts(2,81): error TS6133: 'YYC3ConfidenceScores' is declared but its value is never read.
+src/industries/finance/modules/FinancialNewsAnalyzer.ts(4,1): error TS6133: 'YYC3Response' is declared but its value is never read.
+src/industries/finance/modules/FinancialNewsAnalyzer.ts(73,13): error TS6133: 'nlpResult' is declared but its value is never read.
+src/modules/emotion-sound-platform/complete-validation.ts(9,5): error TS6133: 'YYC3SoundParameters' is declared but its value is never read.
+src/modules/emotion-sound-platform/complete-validation.ts(10,5): error TS6133: 'YYC3EmotionSoundPreset' is declared but its value is never read.
+src/modules/emotion-sound-platform/complete-validation.ts(11,5): error TS6133: 'YYC3PresetUsage' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(4,18): error TS6133: 'AnimatePresence' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,28): error TS6133: 'Play' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,44): error TS6133: 'Heart' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,58): error TS6133: 'Sliders' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,67): error TS6133: 'Layers' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,75): error TS6133: 'Mic' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(5,80): error TS6133: 'Frown' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(13,1): error TS6133: 'Select' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(14,1): error TS6133: 'Tooltip' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(16,1): error TS6133: 'Separator' is declared but its value is never read.
+src/modules/emotion-sound-platform/components.tsx(22,33): error TS6196: 'YYC3SoundParameters' is declared but never used.
+src/modules/emotion-sound-platform/demo.tsx(3,38): error TS6133: 'useRef' is declared but its value is never read.
+src/modules/emotion-sound-platform/demo.tsx(22,10): error TS6133: 'currentDemo' is declared but its value is never read.
+src/modules/emotion-sound-platform/demo.tsx(25,10): error TS6133: 'isRecording' is declared but its value is never read.
+src/modules/emotion-sound-platform/demo.tsx(25,23): error TS6133: 'setIsRecording' is declared but its value is never read.
+src/modules/emotion-sound-platform/demo.tsx(183,13): error TS7030: Not all code paths return a value.
+src/modules/emotion-sound-platform/detailed-validation.ts(12,9): error TS6133: 'samplePreset' is declared but its value is never read.
+src/modules/emotion-sound-platform/detailed-validation.ts(22,9): error TS6133: 'sampleSoundParams' is declared but its value is never read.
+src/modules/emotion-sound-platform/detailed-validation.ts(44,11): error TS6133: 'spatialPos' is declared but its value is never read.
+src/modules/emotion-sound-platform/detailed-validation.ts(59,11): error TS6133: 'dynamicParams' is declared but its value is never read.
+src/modules/emotion-sound-platform/final-verify.ts(121,11): error TS6133: 'emotionState' is declared but its value is never read.
+src/modules/emotion-sound-platform/final-verify.ts(131,11): error TS6133: 'soundParams' is declared but its value is never read.
+src/modules/emotion-sound-platform/index.ts(1,8): error TS6133: 'React' is declared but its value is never read.
+src/modules/emotion-sound-platform/index.tsx(2,63): error TS6133: 'useState' is declared but its value is never read.
+src/modules/emotion-sound-platform/index.tsx(6,3): error TS6133: 'YYC3PrimaryEmotion' is declared but its value is never read.
+src/modules/emotion-sound-platform/index.tsx(9,3): error TS6133: 'YYC3EmotionSoundHook' is declared but its value is never read.
+src/modules/emotion-sound-platform/index.tsx(78,20): error TS6133: 'volume' is declared but its value is never read.
+src/modules/emotion-sound-platform/quick-verify.ts(21,11): error TS6133: 'emotionState' is declared but its value is never read.
+src/modules/emotion-sound-platform/quick-verify.ts(32,11): error TS6133: 'soundParams' is declared but its value is never read.
+src/performance/optimization-strategies.tsx(68,34): error TS6133: 'pages' is declared but its value is never read.
+src/store/slices/createAccessibilitySlice.ts(16,100): error TS6133: 'get' is declared but its value is never read.
+src/tools/yyc3-emotion-reuse-toolkit.ts(1058,34): error TS6133: 'appName' is declared but its value is never read.
+src/tools/yyc3-emotion-reuse-toolkit.ts(1058,51): error TS6133: 'files' is declared but its value is never read.
+src/tools/yyc3-emotion-reuse-toolkit.ts(1058,82): error TS6133: 'outputDir' is declared but its value is never read.
+src/visual-editor/CanvasArea.tsx(12,136): error TS6133: 'props' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(7,37): error TS6133: 'VisualEdge' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(183,38): error TS6133: 'warnings' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(222,56): error TS6133: 'errors' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(262,70): error TS6133: 'errors' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(614,45): error TS6133: 'warnings' is declared but its value is never read.
+src/visual-editor/core/compiler.ts(952,11): error TS6133: 'findChangeHandler' is declared but its value is never read.
+src/visual-editor/core/engine.ts(207,91): error TS6133: 'targetPortId' is declared but its value is never read.
+src/visual-editor/core/engine.ts(475,27): error TS6133: 'project' is declared but its value is never read.
+src/visual-editor/core/engine.ts(503,27): error TS6133: 'project' is declared but its value is never read.
+src/visual-editor/core/engine.ts(532,27): error TS6133: 'project' is declared but its value is never read.
+src/visual-editor/DraggableAsset.tsx(9,72): error TS6133: 'onAddComponent' is declared but its value is never read.
+src/visual-editor/hooks/useEditor.ts(47,10): error TS6133: 'canvasStartPosition' is declared but its value is never read.
+src/visual-editor/hooks/useEditor.ts(47,31): error TS6133: 'setCanvasStartPosition' is declared but its value is never read.
+src/visual-editor/VisualEditor.tsx(199,10): error TS6133: 'isMobile' is declared but its value is never read.
+src/visual-editor/VisualEditor.tsx(199,20): error TS6133: 'setIsMobile' is declared but its value is never read.
+src/visual-editor/VisualEditor.tsx(200,23): error TS6133: 'setCurrentCode' is declared but its value is never read.
+src/visual-editor/VisualEditor.tsx(204,9): error TS6133: 'editor' is declared but its value is never read.
+src/visual-editor/VisualEditor.tsx(331,32): error TS6133: 'suggestion' is declared but its value is never read.

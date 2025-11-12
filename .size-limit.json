@@ -1,0 +1,14 @@
+[
+  {
+    "name": "shared-chunks",
+    "path": ".next/static/chunks/*.js",
+    "gzip": true,
+    "limit": "700 KB"
+  },
+  {
+    "name": "app-chunks",
+    "path": ".next/static/chunks/app/*.js",
+    "gzip": true,
+    "limit": "350 KB"
+  }
+]

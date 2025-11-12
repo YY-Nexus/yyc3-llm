@@ -1,0 +1,78 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.DEPLOY_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'
+
+      - name: Configure kubeconfig
+        shell: bash
+        env:
+          KUBE_CONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64 }}
+        run: |
+          echo "$KUBE_CONFIG_BASE64" | base64 -d > $HOME/.kube/config
+          kubectl version --client
+
+      - name: Apply Kubernetes manifests
+        run: |
+          kubectl apply -f k8s/
+
+      - name: Wait for rollout
+        env:
+          NAMESPACE: ${{ vars.NAMESPACE }}
+          DEPLOYMENT_NAME: ${{ vars.DEPLOYMENT_NAME }}
+        run: |
+          kubectl -n "$NAMESPACE" rollout status deployment/"$DEPLOYMENT_NAME" --timeout=300s
+
+      - name: Health check
+        env:
+          DEPLOY_URL: ${{ vars.DEPLOY_URL }}
+        run: |
+          curl -f "$DEPLOY_URL/healthz" || curl -f "$DEPLOY_URL/api/healthz"
+
+      - name: Rollback on failure
+        if: failure()
+        env:
+          NAMESPACE: ${{ vars.NAMESPACE }}
+          DEPLOYMENT_NAME: ${{ vars.DEPLOYMENT_NAME }}
+        run: |
+          kubectl -n "$NAMESPACE" rollout undo deployment/"$DEPLOYMENT_NAME"
+
+      - name: Collect cluster status
+        if: always()
+        env:
+          NAMESPACE: ${{ vars.NAMESPACE }}
+        run: |
+          kubectl -n "$NAMESPACE" get all -o wide > cluster-status.txt || true
+
+      - name: Upload deploy logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-logs
+          path: cluster-status.txt
+          retention-days: 7

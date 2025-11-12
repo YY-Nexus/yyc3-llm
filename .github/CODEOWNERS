@@ -1,0 +1,16 @@
+# CODEOWNERS defines the default owners of code paths.
+# Replace placeholders with actual GitHub usernames or teams (e.g., @org/maintainers).
+
+*                                   @YanYuCloudCube/yyc3
+app/                                @YanYuCloudCube/yyc3
+components/                         @YanYuCloudCube/yyc3
+lib/                                @YanYuCloudCube/yyc3
+config/                             @YanYuCloudCube/yyc3
+src/                                @YanYuCloudCube/yyc3
+types/                              @YanYuCloudCube/yyc3
+styles/                             @YanYuCloudCube/yyc3
+visual-editor/                      @YanYuCloudCube/yyc3
+
+# Example for specific ownership (adjust as needed):
+# app/api/                           @YanYuCloudCube/backend-team
+# components/ui/                     @YanYuCloudCube/frontend-team
