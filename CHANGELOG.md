@@ -15,7 +15,20 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-- Initial documentation skeletons and CI docs workflow.
+### Security
+- 🔒 **CRITICAL**: Fixed Next.js Remote Code Execution (RCE) vulnerability (GHSA-9qr9-h5gf-34mp, CVSS 10.0)
+  - Upgraded Next.js from 15.5.5 to 15.5.7
+  - Eliminated critical security threat with perfect severity score
+  - See SECURITY_FIX_SUMMARY.md for detailed information
+
+### Changed
+- 🔧 Pinned axios version to ^1.12.2 (was "latest") for build stability
+- 🔧 Pinned nanoid version to ^5.1.6 (was "latest") for build stability
+
+### Notes
+- 4 low-severity vulnerabilities remain in dev dependency @lhci/cli (acceptable risk)
+- All critical, high, and moderate vulnerabilities resolved
+- Production dependencies are secure and up-to-date
 
 ## [1.0.0] - 2025-10-24
 
